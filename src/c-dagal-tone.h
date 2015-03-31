@@ -20,6 +20,8 @@
 #ifndef _C_DAGAL_TONE_H_
 #define _C_DAGAL_TONE_H_
 
+#include <gtkmm/window.h>
+
 class CDagalTone: public Gtk::Window 
 {
 public:

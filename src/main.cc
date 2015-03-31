@@ -17,48 +17,18 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtkmm.h>
 #include <iostream>
 
-#include "config.h"
+#include <gtkmm/application.h>
 
+#include "c-dagal-tone.h"
 
-#ifdef ENABLE_NLS
-#  include <libintl.h>
-#endif
-
-
-
-/* For testing propose use the local (not installed) ui file */
-/* #define UI_FILE PACKAGE_DATA_DIR"/ui/dagaltone.ui" */
-#define UI_FILE "src/dagaltone.ui"
-
-   
-int
-main (int argc, char *argv[])
+int main (int argc, char *argv[])
 {
-	Gtk::Main kit(argc, argv);
+	Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "org.dagal.dagaltone");
 
+	CDagalTone dagalTone;
 
-	//Load the Glade file and instiate its widgets:
-	Glib::RefPtr<Gtk::Builder> builder;
-	try
-	{
-		builder = Gtk::Builder::create_from_file(UI_FILE);
-	}
-	catch (const Glib::FileError & ex)
-	{
-		std::cerr << ex.what() << std::endl;
-		return 1;
-	}
-	Gtk::Window* main_win = 0;
-	builder->get_widget("main_window", main_win);
-
-
-	if (main_win)
-	{
-		kit.run(*main_win);
-	}
-	return 0;
+	return app->run(dagalTone);
 }
 
