@@ -19,5 +19,11 @@
 
 #include "c-dagal-tone.h"
 
+CDagalTone::CDagalTone()
+{
+}
 
+CDagalTone::~CDagalTone()
+{
+}
 

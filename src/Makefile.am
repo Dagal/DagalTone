@@ -37,3 +37,5 @@ uninstall-local:
 	-rm -r $(uidir)
 	-rm -r $(pkgdatadir)
 
+
+man_MANS = 

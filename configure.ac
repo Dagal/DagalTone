@@ -40,4 +40,8 @@ AC_OUTPUT([
 Makefile
 src/Makefile
 po/Makefile.in
+doc/Makefile
+doc/man/Makefile
+doc/info/Makefile
+doc/html/Makefile
 ])

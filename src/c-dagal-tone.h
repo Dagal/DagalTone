@@ -25,10 +25,27 @@
 class CDagalTone: public Gtk::Window 
 {
 public:
+	 CDagalTone();
+	 virtual ~CDagalTone();
 
 protected:
 
 private:
+	 Gtk::MenuBar mMenuBar;
+	 Gtk::Menu mFileMenu;
+	 Gtk::MenuItem mOpenFileMenuItem;
+	 Gtk::MenuItem mSaveMenuItem;
+	 Gtk::MenuItem mSaveAsMenuItem;
+	 Gtk::SeparatorMenuItem mSeparatorFileMenuItem;
+	 Gtk::MenuItem mQuitMenuItem;
+	 Gtk::Menu mEditMenu;
+	 Gtk::MenuItem mCopyMenuItem;
+	 Gtk::MenuItem mCutMenuItem;
+	 Gtk::MenuItem mPasteMenuItem;
+	 Gtk::Menu mHelpMenu;
+	 Gtk::MenuItem mHelpMenuItem;
+	 Gtk::SeparatorMenuItem mSeparatorHelpMenuItem;
+	 Gtk::MenuItem mAboutMenuItem;
 
 };
 
