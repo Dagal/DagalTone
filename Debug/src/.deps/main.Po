@@ -905,7 +905,13 @@ main.o: /home/dagal/dev/cpp/audio/src/main.cc /usr/include/stdc-predef.h \
  /usr/include/gtkmm-3.0/gtkmm/container.h \
  /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy.h \
  /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h \
- /usr/include/gtkmm-3.0/gtkmm/windowgroup.h
+ /usr/include/gtkmm-3.0/gtkmm/windowgroup.h \
+ /usr/include/gtkmm-3.0/gtkmm/box.h \
+ /usr/include/gtkmm-3.0/gtkmm/orientable.h \
+ /usr/include/gtkmm-3.0/gtkmm/hvbox.h \
+ /usr/include/gtkmm-3.0/gtkmm/builder.h \
+ /usr/include/giomm-2.4/giomm/resource.h \
+ /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 
 /usr/include/stdc-predef.h:
 
@@ -2922,3 +2928,15 @@ main.o: /home/dagal/dev/cpp/audio/src/main.cc /usr/include/stdc-predef.h \
 /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h:
 
 /usr/include/gtkmm-3.0/gtkmm/windowgroup.h:
+
+/usr/include/gtkmm-3.0/gtkmm/box.h:
+
+/usr/include/gtkmm-3.0/gtkmm/orientable.h:
+
+/usr/include/gtkmm-3.0/gtkmm/hvbox.h:
+
+/usr/include/gtkmm-3.0/gtkmm/builder.h:
+
+/usr/include/giomm-2.4/giomm/resource.h:
+
+/usr/include/giomm-2.4/giomm/simpleactiongroup.h:

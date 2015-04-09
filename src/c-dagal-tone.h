@@ -21,32 +21,28 @@
 #define _C_DAGAL_TONE_H_
 
 #include <gtkmm/window.h>
+#include <gtkmm/box.h>
+#include <gtkmm/builder.h>
+#include <giomm/simpleactiongroup.h>
 
 class CDagalTone: public Gtk::Window 
 {
 public:
-	 CDagalTone();
+	 CDagalTone(const Glib::RefPtr<Gtk::Application>& app);
 	 virtual ~CDagalTone();
 
 protected:
 
 private:
-	 Gtk::MenuBar mMenuBar;
-	 Gtk::Menu mFileMenu;
-	 Gtk::MenuItem mOpenFileMenuItem;
-	 Gtk::MenuItem mSaveMenuItem;
-	 Gtk::MenuItem mSaveAsMenuItem;
-	 Gtk::SeparatorMenuItem mSeparatorFileMenuItem;
-	 Gtk::MenuItem mQuitMenuItem;
-	 Gtk::Menu mEditMenu;
-	 Gtk::MenuItem mCopyMenuItem;
-	 Gtk::MenuItem mCutMenuItem;
-	 Gtk::MenuItem mPasteMenuItem;
-	 Gtk::Menu mHelpMenu;
-	 Gtk::MenuItem mHelpMenuItem;
-	 Gtk::SeparatorMenuItem mSeparatorHelpMenuItem;
-	 Gtk::MenuItem mAboutMenuItem;
+	 // Signal handlers:
+	 void on_quit_pressed();
 
+	 // Child widgets:
+	 Gtk::Box mMainBox;
+	 
+	 Glib::RefPtr<Gtk::Builder> m_refMainMenu;
+	 Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
+	 Glib::RefPtr<Gio::SimpleAction> m_refActionRain;
 };
 
 #endif // _C_DAGAL_TONE_H_

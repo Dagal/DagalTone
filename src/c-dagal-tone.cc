@@ -17,13 +17,74 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <iostream>
 #include "c-dagal-tone.h"
 
-CDagalTone::CDagalTone()
+#include <gtkmm/menubar.h>
+
+CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
+	mMainBox(Gtk::ORIENTATION_VERTICAL)
 {
+		// Window properties
+		set_title ("DagalTone");
+
+		// Layout
+		add(mMainBox);
+		
+		// Action des menus et toolbars
+		m_refActionGroup = Gio::SimpleActionGroup::create();
+		// Menu fichier
+		m_refActionGroup->add_action("quit", sigc::mem_fun (*this, &CDagalTone::on_quit_pressed));
+
+		insert_action_group ("example", m_refActionGroup);
+
+		// Création du menu à l'aide de balise xml
+		m_refMainMenu = Gtk::Builder::create();
+		Glib::ustring ui_info =
+			"<interface>"
+			"   <!-- menubar -->"
+			"   <menu id='mainmenu'>"
+			"	   <submenu>"
+			"		<attribute name='label' translatable='yes'>_File</attribute>"
+			"		<section>"
+			"			<item>"
+			"				<attribute name='label' translatable='yes'>_Quit</attribute>"
+			"				<attribute name='action'>example.quit</attribute>"
+			"				<attribute name='accel'>&lt;Primary&gt;q</attribute>"
+			"			</item>"
+			"		</section>"
+			"	   </submenu>"
+			"   </menu>"
+			"</interface>";
+
+		try
+		{
+			m_refMainMenu->add_from_string (ui_info);
+		}
+		catch (const Glib::Error& ex)
+		{
+			std::cerr << "La création du menu a échoué!:" << ex.what() << std::endl;
+		}
+
+		Glib::RefPtr<Glib::Object> object = m_refMainMenu->get_object("mainmenu");
+		Glib::RefPtr<Gio::Menu> appMenu = Glib::RefPtr<Gio::Menu>::cast_dynamic (object);
+		if (!appMenu)
+		{
+			g_warning("appMenu is not here");
+		}
+		else
+		{
+			Gtk::MenuBar* pMenuBar = Gtk::manage(new Gtk::MenuBar(appMenu));
+			mMainBox.pack_start(*pMenuBar, Gtk::PACK_SHRINK);
+		}
+		show_all_children ();
 }
 
 CDagalTone::~CDagalTone()
 {
 }
 
+void CDagalTone::on_quit_pressed()
+{
+	std::cerr << "Good bye the world!" << std::endl;
+}

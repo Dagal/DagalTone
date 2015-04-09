@@ -189,7 +189,7 @@ CSCOPE = cscope
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in AUTHORS \
 	COPYING ChangeLog INSTALL NEWS README compile config.guess \
-	config.sub install-sh ltmain.sh missing
+	config.sub depcomp install-sh ltmain.sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -386,7 +386,7 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = /home/dagal/dev/cpp/audio
-SUBDIRS = src po
+SUBDIRS = src po doc
 dist_doc_DATA = \
 	README \
 	COPYING \

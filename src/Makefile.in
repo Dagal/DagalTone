@@ -365,6 +365,7 @@ dagaltone_SOURCES = \
 dagaltone_LDFLAGS = 
 dagaltone_LDADD = $(DAGALTONE_LIBS)
 EXTRA_DIST = $(ui_DATA)
+man_MANS = 
 all: all-am
 
 .SUFFIXES:
