@@ -911,7 +911,13 @@ main.o: /home/dagal/dev/cpp/audio/src/main.cc /usr/include/stdc-predef.h \
  /usr/include/gtkmm-3.0/gtkmm/hvbox.h \
  /usr/include/gtkmm-3.0/gtkmm/builder.h \
  /usr/include/giomm-2.4/giomm/resource.h \
- /usr/include/giomm-2.4/giomm/simpleactiongroup.h
+ /usr/include/giomm-2.4/giomm/simpleactiongroup.h \
+ /usr/include/gtkmm-3.0/gtkmm/menubar.h \
+ /usr/include/gtkmm-3.0/gtkmm/menushell.h \
+ /usr/include/gtkmm-3.0/gtkmm/menuitem.h \
+ /usr/include/gtkmm-3.0/gtkmm/accellabel.h \
+ /usr/include/gtkmm-3.0/gtkmm/label.h /usr/include/gtkmm-3.0/gtkmm/misc.h \
+ /usr/include/gtkmm-3.0/gtkmm/activatable.h
 
 /usr/include/stdc-predef.h:
 
@@ -2940,3 +2946,17 @@ main.o: /home/dagal/dev/cpp/audio/src/main.cc /usr/include/stdc-predef.h \
 /usr/include/giomm-2.4/giomm/resource.h:
 
 /usr/include/giomm-2.4/giomm/simpleactiongroup.h:
+
+/usr/include/gtkmm-3.0/gtkmm/menubar.h:
+
+/usr/include/gtkmm-3.0/gtkmm/menushell.h:
+
+/usr/include/gtkmm-3.0/gtkmm/menuitem.h:
+
+/usr/include/gtkmm-3.0/gtkmm/accellabel.h:
+
+/usr/include/gtkmm-3.0/gtkmm/label.h:
+
+/usr/include/gtkmm-3.0/gtkmm/misc.h:
+
+/usr/include/gtkmm-3.0/gtkmm/activatable.h:

@@ -24,6 +24,7 @@
 #include <gtkmm/box.h>
 #include <gtkmm/builder.h>
 #include <giomm/simpleactiongroup.h>
+#include <gtkmm/menubar.h>
 
 class CDagalTone: public Gtk::Window 
 {
@@ -39,10 +40,14 @@ private:
 
 	 // Child widgets:
 	 Gtk::Box mMainBox;
-	 
+
+	 // Référence Action, Menu et ToolBar
 	 Glib::RefPtr<Gtk::Builder> m_refMainMenu;
 	 Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
 	 Glib::RefPtr<Gio::SimpleAction> m_refActionRain;
+	 Gtk::MenuBar* pMenuBar;
+
+	 // 
 };
 
 #endif // _C_DAGAL_TONE_H_
