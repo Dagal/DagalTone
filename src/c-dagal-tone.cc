@@ -23,7 +23,8 @@
 #include <gtkmm/menubar.h>
 
 CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
-	mMainBox(Gtk::ORIENTATION_VERTICAL)
+	mMainBox(Gtk::ORIENTATION_VERTICAL),
+	mPaned(Gtk::ORIENTATION_HORIZONTAL)
 {
 		// Window properties
 		set_title ("DagalTone");
@@ -77,6 +78,12 @@ CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
 			mpMenuBar = Gtk::manage(new Gtk::MenuBar(appMenu));
 			mMainBox.pack_start(*mpMenuBar, Gtk::PACK_SHRINK);
 		}
+		
+		mMainBox.set_center_widget(mPaned);
+
+		mMainBox.pack_end(mStatusBar, Gtk::PACK_SHRINK);
+		mStatusBar.push("Ready!");
+		
 		show_all_children ();
 }
 

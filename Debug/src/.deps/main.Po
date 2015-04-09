@@ -917,7 +917,21 @@ main.o: /home/dagal/dev/cpp/audio/src/main.cc /usr/include/stdc-predef.h \
  /usr/include/gtkmm-3.0/gtkmm/menuitem.h \
  /usr/include/gtkmm-3.0/gtkmm/accellabel.h \
  /usr/include/gtkmm-3.0/gtkmm/label.h /usr/include/gtkmm-3.0/gtkmm/misc.h \
- /usr/include/gtkmm-3.0/gtkmm/activatable.h
+ /usr/include/gtkmm-3.0/gtkmm/activatable.h \
+ /usr/include/gtkmm-3.0/gtkmm/toolbar.h \
+ /usr/include/gtkmm-3.0/gtkmm/toolshell.h \
+ /usr/include/gtkmm-3.0/gtkmm/sizegroup.h \
+ /usr/include/gtkmm-3.0/gtkmm/toolitem.h \
+ /usr/include/gtkmm-3.0/gtkmm/toolbutton.h \
+ /usr/include/gtkmm-3.0/gtkmm/toggletoolbutton.h \
+ /usr/include/gtkmm-3.0/gtkmm/paned.h \
+ /usr/include/gtkmm-3.0/gtkmm/hvpaned.h \
+ /usr/include/gtkmm-3.0/gtkmm/toolpalette.h \
+ /usr/include/gtkmm-3.0/gtkmm/scrollable.h \
+ /usr/include/gtkmm-3.0/gtkmm/adjustment.h \
+ /usr/include/gtkmm-3.0/gtkmm/toolitemgroup.h \
+ /usr/include/gtkmm-3.0/gtkmm/layout.h \
+ /usr/include/gtkmm-3.0/gtkmm/statusbar.h
 
 /usr/include/stdc-predef.h:
 
@@ -2960,3 +2974,31 @@ main.o: /home/dagal/dev/cpp/audio/src/main.cc /usr/include/stdc-predef.h \
 /usr/include/gtkmm-3.0/gtkmm/misc.h:
 
 /usr/include/gtkmm-3.0/gtkmm/activatable.h:
+
+/usr/include/gtkmm-3.0/gtkmm/toolbar.h:
+
+/usr/include/gtkmm-3.0/gtkmm/toolshell.h:
+
+/usr/include/gtkmm-3.0/gtkmm/sizegroup.h:
+
+/usr/include/gtkmm-3.0/gtkmm/toolitem.h:
+
+/usr/include/gtkmm-3.0/gtkmm/toolbutton.h:
+
+/usr/include/gtkmm-3.0/gtkmm/toggletoolbutton.h:
+
+/usr/include/gtkmm-3.0/gtkmm/paned.h:
+
+/usr/include/gtkmm-3.0/gtkmm/hvpaned.h:
+
+/usr/include/gtkmm-3.0/gtkmm/toolpalette.h:
+
+/usr/include/gtkmm-3.0/gtkmm/scrollable.h:
+
+/usr/include/gtkmm-3.0/gtkmm/adjustment.h:
+
+/usr/include/gtkmm-3.0/gtkmm/toolitemgroup.h:
+
+/usr/include/gtkmm-3.0/gtkmm/layout.h:
+
+/usr/include/gtkmm-3.0/gtkmm/statusbar.h:

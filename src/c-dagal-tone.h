@@ -25,6 +25,11 @@
 #include <gtkmm/builder.h>
 #include <giomm/simpleactiongroup.h>
 #include <gtkmm/menubar.h>
+#include <gtkmm/toolbar.h>
+#include <gtkmm/paned.h>
+#include <gtkmm/toolpalette.h>
+#include <gtkmm/layout.h>
+#include <gtkmm/statusbar.h>
 
 class CDagalTone: public Gtk::Window 
 {
@@ -46,8 +51,15 @@ private:
 	 Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
 	 Glib::RefPtr<Gio::SimpleAction> m_refActionRain;
 	 Gtk::MenuBar* mpMenuBar;
+	 Gtk::Toolbar mToolBar;
 
-	 // 
+	 // Centre 
+	 Gtk::Paned mPaned;
+	 Gtk::ToolPalette mToolPalette;
+	 Gtk::Layout mLayout;
+
+	 // StatusBar
+	 Gtk::Statusbar mStatusBar;
 };
 
 #endif // _C_DAGAL_TONE_H_
