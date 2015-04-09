@@ -45,7 +45,7 @@ private:
 	 Glib::RefPtr<Gtk::Builder> m_refMainMenu;
 	 Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
 	 Glib::RefPtr<Gio::SimpleAction> m_refActionRain;
-	 Gtk::MenuBar* pMenuBar;
+	 Gtk::MenuBar* mpMenuBar;
 
 	 // 
 };

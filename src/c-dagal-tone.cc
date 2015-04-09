@@ -74,8 +74,8 @@ CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
 		}
 		else
 		{
-			pMenuBar = Gtk::manage(new Gtk::MenuBar(appMenu));
-			mMainBox.pack_start(*pMenuBar, Gtk::PACK_SHRINK);
+			mpMenuBar = Gtk::manage(new Gtk::MenuBar(appMenu));
+			mMainBox.pack_start(*mpMenuBar, Gtk::PACK_SHRINK);
 		}
 		show_all_children ();
 }
