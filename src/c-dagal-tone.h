@@ -66,6 +66,7 @@ private:
 
 	 // Test Tool Button
 	 Gtk::ToolButton mButton1;
+	 Gtk::ToolButton mButton2;
 };
 
 #endif // _C_DAGAL_TONE_H_
