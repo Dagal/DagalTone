@@ -30,6 +30,8 @@
 #include <gtkmm/toolpalette.h>
 #include <gtkmm/layout.h>
 #include <gtkmm/statusbar.h>
+#include <gtkmm/toolbutton.h>
+#include <gtkmm/toolitemgroup.h>
 
 class CDagalTone: public Gtk::Window 
 {
@@ -56,10 +58,14 @@ private:
 	 // Centre 
 	 Gtk::Paned mPaned;
 	 Gtk::ToolPalette mToolPalette;
+	 Gtk::ToolItemGroup mToolItemGroup;
 	 Gtk::Layout mLayout;
 
 	 // StatusBar
 	 Gtk::Statusbar mStatusBar;
+
+	 // Test Tool Button
+	 Gtk::ToolButton mButton1;
 };
 
 #endif // _C_DAGAL_TONE_H_

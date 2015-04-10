@@ -24,7 +24,9 @@
 
 CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
 	mMainBox(Gtk::ORIENTATION_VERTICAL),
-	mPaned(Gtk::ORIENTATION_HORIZONTAL)
+	mPaned(Gtk::ORIENTATION_HORIZONTAL),
+	mToolItemGroup("Groupe de test"),
+	mButton1("Test Button")
 {
 		// Window properties
 		set_title ("DagalTone");
@@ -78,7 +80,15 @@ CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
 			mpMenuBar = Gtk::manage(new Gtk::MenuBar(appMenu));
 			mMainBox.pack_start(*mpMenuBar, Gtk::PACK_SHRINK);
 		}
-		
+
+		mMainBox.pack_start(mToolBar, Gtk::PACK_SHRINK);
+		//mToolBar.add(mButton1);
+
+		mToolItemGroup.insert(mButton1);
+		mToolPalette.add(mToolItemGroup);
+		mPaned.add1(mToolPalette);
+		mPaned.add2(mLayout);
+		mMainBox.pack_start(mPaned, Gtk::PACK_EXPAND_WIDGET);
 		mMainBox.set_center_widget(mPaned);
 
 		mMainBox.pack_end(mStatusBar, Gtk::PACK_SHRINK);
