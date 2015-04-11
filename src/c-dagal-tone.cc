@@ -27,7 +27,8 @@ CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
 	mPaned(Gtk::ORIENTATION_HORIZONTAL),
 	mToolItemGroup("Groupe de test"),
 	mButton1("Test Button 1"),
-	mButton2("Test Button 2")
+	mButton2("Test Button 2"),
+	mButton3("Test Button 3")
 {
 		// Window properties
 		set_title ("DagalTone");
@@ -105,4 +106,9 @@ CDagalTone::~CDagalTone()
 void CDagalTone::on_quit_pressed()
 {
 	std::cerr << "Good bye the world!" << std::endl;
+}
+
+void CDagalTone::on_layout_draw()
+{
+		mLayout.put(mButton3, 100, 100);
 }

@@ -31,6 +31,7 @@
 #include <gtkmm/layout.h>
 #include <gtkmm/statusbar.h>
 #include <gtkmm/toolbutton.h>
+#include <gtkmm/button.h>
 #include <gtkmm/toolitemgroup.h>
 
 class CDagalTone: public Gtk::Window 
@@ -44,6 +45,7 @@ protected:
 private:
 	 // Signal handlers:
 	 void on_quit_pressed();
+	 void on_layout_draw();
 
 	 // Child widgets:
 	 Gtk::Box mMainBox;
@@ -67,6 +69,7 @@ private:
 	 // Test Tool Button
 	 Gtk::ToolButton mButton1;
 	 Gtk::ToolButton mButton2;
+	 Gtk::Button mButton3;
 };
 
 #endif // _C_DAGAL_TONE_H_

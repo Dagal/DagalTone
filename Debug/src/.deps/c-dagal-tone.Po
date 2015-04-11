@@ -931,7 +931,8 @@ c-dagal-tone.o: /home/dagal/dev/cpp/audio/src/c-dagal-tone.cc \
  /usr/include/gtkmm-3.0/gtkmm/adjustment.h \
  /usr/include/gtkmm-3.0/gtkmm/toolitemgroup.h \
  /usr/include/gtkmm-3.0/gtkmm/layout.h \
- /usr/include/gtkmm-3.0/gtkmm/statusbar.h
+ /usr/include/gtkmm-3.0/gtkmm/statusbar.h \
+ /usr/include/gtkmm-3.0/gtkmm/button.h
 
 /usr/include/stdc-predef.h:
 
@@ -3002,3 +3003,5 @@ c-dagal-tone.o: /home/dagal/dev/cpp/audio/src/c-dagal-tone.cc \
 /usr/include/gtkmm-3.0/gtkmm/layout.h:
 
 /usr/include/gtkmm-3.0/gtkmm/statusbar.h:
+
+/usr/include/gtkmm-3.0/gtkmm/button.h:

@@ -21,7 +21,9 @@ bin_PROGRAMS = dagaltone
 dagaltone_SOURCES = \
 	main.cc \
 	c-dagal-tone.cc \
-	c-dagal-tone.h
+	c-dagal-tone.h \
+	generallayout.cc \
+	generallayout.h
 
 dagaltone_LDFLAGS = 
 
