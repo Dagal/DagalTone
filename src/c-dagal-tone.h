@@ -28,7 +28,9 @@
 #include <gtkmm/toolbar.h>
 #include <gtkmm/paned.h>
 #include <gtkmm/toolpalette.h>
-#include <gtkmm/layout.h>
+#include <gtkmm/frame.h>
+#include "generallayout.h"
+//#include <gtkmm/layout.h>
 #include <gtkmm/statusbar.h>
 #include <gtkmm/toolbutton.h>
 #include <gtkmm/button.h>
@@ -45,6 +47,7 @@ protected:
 private:
 	 // Signal handlers:
 	 void on_quit_pressed();
+	 void on_input_pressed();
 	 void on_layout_draw();
 
 	 // Child widgets:
@@ -59,9 +62,11 @@ private:
 
 	 // Centre 
 	 Gtk::Paned mPaned;
+	 Gtk::Frame mFrameLayout1;
 	 Gtk::ToolPalette mToolPalette;
 	 Gtk::ToolItemGroup mToolItemGroup;
-	 Gtk::Layout mLayout;
+	 Gtk::Frame mFrameLayout;
+	 GeneralLayout mGL;
 
 	 // StatusBar
 	 Gtk::Statusbar mStatusBar;

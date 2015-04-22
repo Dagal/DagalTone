@@ -102,7 +102,7 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_dagaltone_OBJECTS = main.$(OBJEXT) c-dagal-tone.$(OBJEXT) \
-	generallayout.$(OBJEXT)
+	generallayout.$(OBJEXT) general-module.$(OBJEXT)
 dagaltone_OBJECTS = $(am_dagaltone_OBJECTS)
 am__DEPENDENCIES_1 =
 dagaltone_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -363,7 +363,9 @@ dagaltone_SOURCES = \
 	c-dagal-tone.cc \
 	c-dagal-tone.h \
 	generallayout.cc \
-	generallayout.h
+	generallayout.h \
+	general-module.cc \
+	general-module.h
 
 dagaltone_LDFLAGS = 
 dagaltone_LDADD = $(DAGALTONE_LIBS)
@@ -463,6 +465,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/c-dagal-tone.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/general-module.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/generallayout.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 

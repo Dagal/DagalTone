@@ -930,7 +930,10 @@ c-dagal-tone.o: /home/dagal/dev/cpp/audio/src/c-dagal-tone.cc \
  /usr/include/gtkmm-3.0/gtkmm/scrollable.h \
  /usr/include/gtkmm-3.0/gtkmm/adjustment.h \
  /usr/include/gtkmm-3.0/gtkmm/toolitemgroup.h \
- /usr/include/gtkmm-3.0/gtkmm/layout.h \
+ /usr/include/gtkmm-3.0/gtkmm/frame.h \
+ /home/dagal/dev/cpp/audio/src/generallayout.h \
+ /usr/include/gtkmm-3.0/gtkmm/drawingarea.h \
+ /home/dagal/dev/cpp/audio/src/general-module.h \
  /usr/include/gtkmm-3.0/gtkmm/statusbar.h \
  /usr/include/gtkmm-3.0/gtkmm/button.h
 
@@ -3000,7 +3003,13 @@ c-dagal-tone.o: /home/dagal/dev/cpp/audio/src/c-dagal-tone.cc \
 
 /usr/include/gtkmm-3.0/gtkmm/toolitemgroup.h:
 
-/usr/include/gtkmm-3.0/gtkmm/layout.h:
+/usr/include/gtkmm-3.0/gtkmm/frame.h:
+
+/home/dagal/dev/cpp/audio/src/generallayout.h:
+
+/usr/include/gtkmm-3.0/gtkmm/drawingarea.h:
+
+/home/dagal/dev/cpp/audio/src/general-module.h:
 
 /usr/include/gtkmm-3.0/gtkmm/statusbar.h:
 

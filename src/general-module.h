@@ -1,7 +1,7 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 2; tab-width: 2 -*-  */
 /*
- * generallayout.h
- * Copyright (C) 2015 Dejardin Gilbert <dejarding@gmail.com>
+ * general-module.h
+ * Copyright (C) 2015 Gilbert Dejardin <dejarding@gmail.com>
  *
  * audio is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -17,27 +17,28 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _GENERALLAYOUT_H_
-#define _GENERALLAYOUT_H_
+#ifndef _GENERAL_MODULE_H_
+#define _GENERAL_MODULE_H_
 
 #include <gtkmm/drawingarea.h>
-#include "general-module.h"
 
-class GeneralLayout: public Gtk::DrawingArea
+class GeneralModule
 {
 public:
-	 GeneralLayout();
-	 virtual ~GeneralLayout();
+	 GeneralModule();
+	 virtual ~GeneralModule();
+	 void draw(const Cairo::RefPtr<Cairo::Context>& cr) const;
+	 void moveTo(const double x, const double y);
+	 void update(const double time);
 
 protected:
-	 virtual bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr);
-
-	 bool on_timeout();
 
 private:
-	 GeneralModule mGM;
+	 double mx,my;	// Position
+	 double mvx,mvy;	// Vitesse
+	 double max,may;	// Accélération
 
 };
 
-#endif // _GENERALLAYOUT_H_
+#endif // _GENERAL_MODULE_H_
 

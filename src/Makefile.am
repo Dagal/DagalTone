@@ -23,7 +23,9 @@ dagaltone_SOURCES = \
 	c-dagal-tone.cc \
 	c-dagal-tone.h \
 	generallayout.cc \
-	generallayout.h
+	generallayout.h \
+	general-module.cc \
+	general-module.h
 
 dagaltone_LDFLAGS = 
 
