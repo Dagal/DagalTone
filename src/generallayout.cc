@@ -23,7 +23,7 @@
 GeneralLayout::GeneralLayout() :
 	Gtk::DrawingArea()
 {
-		mGM.moveTo(-1,-0.6);
+		mGM.moveTo(-0.5,-0.2);
 		
 		Glib::signal_timeout().connect(sigc::mem_fun(*this,&GeneralLayout::on_timeout),20);
 }
@@ -34,16 +34,23 @@ GeneralLayout::~GeneralLayout()
 
 bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
+	// Récupération des informations de notre surface de travail
 	Gtk::Allocation allocation = get_allocation();
 	const int width = allocation.get_width();
 	const int height = allocation.get_height();
+
+	// Taille unitaire et centre au millieu de la surface
 	cr->scale(width,height);
 	cr->translate(0.5,0.5);
-	cr->set_line_width(0.05);
+
+	// Paramètres par défaut
+	cr->set_line_width(0.02);
   cr->save();
 	cr->set_source_rgba(0.337,0.612,0.117,0.9);
 	cr->paint();
 	cr->restore();
+
+	// Dessin du fond d'écran
 	cr->arc(0, 0, 0.42, 0, 2*M_PI);
 	cr->save();
 	cr->set_source_rgba(1.0,1.0,1.0,0.8);
@@ -51,6 +58,7 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 	cr->restore();
 	cr->stroke();
 
+	// Affichage des modules
 	mGM.update(20);
 	mGM.draw(cr);
 	

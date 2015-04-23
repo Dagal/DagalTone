@@ -29,13 +29,15 @@ public:
 	 GeneralLayout();
 	 virtual ~GeneralLayout();
 
+	 GeneralModule mGM;
+
+	 
 protected:
 	 virtual bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr);
 
 	 bool on_timeout();
 
 private:
-	 GeneralModule mGM;
 
 };
 

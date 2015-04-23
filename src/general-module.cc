@@ -22,6 +22,8 @@
 
 GeneralModule::GeneralModule()
 {
+	mxdesired = mydesired = 0.0;
+	breaker = 0.98;
 }
 
 GeneralModule::~GeneralModule()
@@ -30,12 +32,32 @@ GeneralModule::~GeneralModule()
 
 void GeneralModule::update(const double time)
 {
-	max = -mx;
-	may = -my;
-	mvx = mvx + max * time / 1000.0;
-	mvy = mvy + may * time / 1000.0;
+	max = (mxdesired - mx);
+	may = (mydesired - my);
+	mvx = (mvx + max * time / 1000.0) * breaker;
+	mvy = (mvy + may * time / 1000.0) * breaker;
 	mx = mx + mvx * time / 1000.0 + max * time * time / 2000000.0;
 	my = my + mvy * time / 1000.0 + may * time * time / 2000000.0;
+	if (mx < -0.5)
+	{
+		mx = mx + (-0.5 - mx) * 2.0;
+		mvx = -mvx;
+	}
+	if (mx > 0.5)
+	{
+		mx = mx - (mx - 0.5) * 2.0;
+		mvx = -mvx;
+	}
+	if (my < -0.5)
+	{
+		my = my + (-0.5 - my) * 2.0;
+		mvy = -mvy;
+	}
+	if (my > 0.5)
+	{
+		my = my - (my - 0.5) * 2.0;
+		mvy = mvy;
+	}
 }
 
 void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
@@ -52,6 +74,6 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 
 void GeneralModule::moveTo(const double x, const double y)
 {
-	mx = x;
-	my = y;
+	mxdesired = x;
+	mydesired = y;
 }

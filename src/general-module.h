@@ -34,9 +34,11 @@ public:
 protected:
 
 private:
+	 double mxdesired, mydesired; // Position à atteindre
 	 double mx,my;	// Position
 	 double mvx,mvy;	// Vitesse
 	 double max,may;	// Accélération
+	 double breaker;	// coéficient de freinage
 
 };
 

@@ -42,6 +42,8 @@ public:
 	 CDagalTone(const Glib::RefPtr<Gtk::Application>& app);
 	 virtual ~CDagalTone();
 
+	 GeneralLayout mGL;
+
 protected:
 
 private:
@@ -66,7 +68,6 @@ private:
 	 Gtk::ToolPalette mToolPalette;
 	 Gtk::ToolItemGroup mToolItemGroup;
 	 Gtk::Frame mFrameLayout;
-	 GeneralLayout mGL;
 
 	 // StatusBar
 	 Gtk::Statusbar mStatusBar;

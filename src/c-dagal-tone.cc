@@ -156,6 +156,10 @@ void CDagalTone::on_quit_pressed()
 void CDagalTone::on_input_pressed()
 {
 	std::cerr << "Add Input Module" << std::endl;
+	double x = rand() / (double)RAND_MAX - 0.5;
+	double y = rand() / (double)RAND_MAX - 0.5;
+	mGL.mGM.moveTo(x,y);
+	std::cerr << "Déplacement vers " << x << "," << y << std::endl;
 }
 
 void CDagalTone::on_layout_draw()
