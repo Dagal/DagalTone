@@ -21,7 +21,7 @@
 
 #include <gtkmm/application.h>
 
-#include "c-dagal-tone.h"
+#include "c-dagal-tone.hpp"
 
 int main (int argc, char *argv[])
 {

@@ -18,7 +18,7 @@
  */
 
 #include <glibmm/main.h>
-#include "generallayout.h"
+#include "generallayout.hpp"
 
 GeneralLayout::GeneralLayout() :
 	Gtk::DrawingArea()

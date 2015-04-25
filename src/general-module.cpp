@@ -18,7 +18,7 @@
  */
 
 #include <iostream>
-#include "general-module.h"
+#include "general-module.hpp"
 
 GeneralModule::GeneralModule()
 {

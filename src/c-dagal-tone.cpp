@@ -18,7 +18,7 @@
  */
 
 #include <iostream>
-#include "c-dagal-tone.h"
+#include "c-dagal-tone.hpp"
 
 #include <gtkmm/menubar.h>
 

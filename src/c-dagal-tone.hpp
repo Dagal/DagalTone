@@ -29,7 +29,7 @@
 #include <gtkmm/paned.h>
 #include <gtkmm/toolpalette.h>
 #include <gtkmm/frame.h>
-#include "generallayout.h"
+#include "generallayout.hpp"
 //#include <gtkmm/layout.h>
 #include <gtkmm/statusbar.h>
 #include <gtkmm/toolbutton.h>
