@@ -44,31 +44,31 @@ PATH: /home/dagal/MarilouV5/binu64
 ## Core tests. ##
 ## ----------- ##
 
-configure:1832: checking for a BSD-compatible install
-configure:1900: result: /usr/bin/install -c
-configure:1911: checking whether build environment is sane
-configure:1966: result: yes
-configure:2117: checking for a thread-safe mkdir -p
-configure:2156: result: /usr/bin/mkdir -p
-configure:2163: checking for gawk
-configure:2179: found /usr/bin/gawk
-configure:2190: result: gawk
-configure:2201: checking whether make sets $(MAKE)
-configure:2223: result: yes
-configure:2252: checking whether make supports nested variables
-configure:2269: result: yes
-configure:2453: checking for g++
-configure:2469: found /usr/bin/g++
-configure:2480: result: g++
-configure:2507: checking for C++ compiler version
-configure:2516: g++ --version >&5
+configure:1851: checking for a BSD-compatible install
+configure:1919: result: /usr/bin/install -c
+configure:1930: checking whether build environment is sane
+configure:1985: result: yes
+configure:2136: checking for a thread-safe mkdir -p
+configure:2175: result: /usr/bin/mkdir -p
+configure:2182: checking for gawk
+configure:2198: found /usr/bin/gawk
+configure:2209: result: gawk
+configure:2220: checking whether make sets $(MAKE)
+configure:2242: result: yes
+configure:2271: checking whether make supports nested variables
+configure:2288: result: yes
+configure:2472: checking for g++
+configure:2488: found /usr/bin/g++
+configure:2499: result: g++
+configure:2526: checking for C++ compiler version
+configure:2535: g++ --version >&5
 g++ (GCC) 5.1.0
 Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-configure:2527: $? = 0
-configure:2516: g++ -v >&5
+configure:2546: $? = 0
+configure:2535: g++ -v >&5
 Using built-in specs.
 COLLECT_GCC=g++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/lto-wrapper
@@ -76,52 +76,63 @@ Target: x86_64-unknown-linux-gnu
 Configured with: /build/gcc/src/gcc-5.1.0/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --disable-multilib --disable-werror --enable-checking=release --with-default-libstdcxx-abi=c++98
 Thread model: posix
 gcc version 5.1.0 (GCC) 
-configure:2527: $? = 0
-configure:2516: g++ -V >&5
+configure:2546: $? = 0
+configure:2535: g++ -V >&5
 g++: error: unrecognized command line option '-V'
 g++: fatal error: no input files
 compilation terminated.
-configure:2527: $? = 1
-configure:2516: g++ -qversion >&5
+configure:2546: $? = 1
+configure:2535: g++ -qversion >&5
 g++: error: unrecognized command line option '-qversion'
 g++: fatal error: no input files
 compilation terminated.
-configure:2527: $? = 1
-configure:2547: checking whether the C++ compiler works
-configure:2569: g++    conftest.cpp  >&5
-configure:2573: $? = 0
-configure:2621: result: yes
-configure:2624: checking for C++ compiler default output file name
-configure:2626: result: a.out
-configure:2632: checking for suffix of executables
-configure:2639: g++ -o conftest    conftest.cpp  >&5
-configure:2643: $? = 0
-configure:2665: result: 
-configure:2687: checking whether we are cross compiling
-configure:2695: g++ -o conftest    conftest.cpp  >&5
-configure:2699: $? = 0
-configure:2706: ./conftest
-configure:2710: $? = 0
-configure:2725: result: no
-configure:2730: checking for suffix of object files
-configure:2752: g++ -c   conftest.cpp >&5
-configure:2756: $? = 0
-configure:2777: result: o
-configure:2781: checking whether we are using the GNU C++ compiler
-configure:2800: g++ -c   conftest.cpp >&5
-configure:2800: $? = 0
-configure:2809: result: yes
-configure:2818: checking whether g++ accepts -g
-configure:2838: g++ -c -g  conftest.cpp >&5
-configure:2838: $? = 0
-configure:2879: result: yes
-configure:2913: checking for style of include used by make
-configure:2941: result: GNU
-configure:2967: checking dependency style of g++
-configure:3078: result: gcc3
-configure:3206: checking that generated files are newer than configure
-configure:3212: result: done
-configure:3235: creating ./config.status
+configure:2546: $? = 1
+configure:2566: checking whether the C++ compiler works
+configure:2588: g++    conftest.cpp  >&5
+configure:2592: $? = 0
+configure:2640: result: yes
+configure:2643: checking for C++ compiler default output file name
+configure:2645: result: a.out
+configure:2651: checking for suffix of executables
+configure:2658: g++ -o conftest    conftest.cpp  >&5
+configure:2662: $? = 0
+configure:2684: result: 
+configure:2706: checking whether we are cross compiling
+configure:2714: g++ -o conftest    conftest.cpp  >&5
+configure:2718: $? = 0
+configure:2725: ./conftest
+configure:2729: $? = 0
+configure:2744: result: no
+configure:2749: checking for suffix of object files
+configure:2771: g++ -c   conftest.cpp >&5
+configure:2775: $? = 0
+configure:2796: result: o
+configure:2800: checking whether we are using the GNU C++ compiler
+configure:2819: g++ -c   conftest.cpp >&5
+configure:2819: $? = 0
+configure:2828: result: yes
+configure:2837: checking whether g++ accepts -g
+configure:2857: g++ -c -g  conftest.cpp >&5
+configure:2857: $? = 0
+configure:2898: result: yes
+configure:2932: checking for style of include used by make
+configure:2960: result: GNU
+configure:2986: checking dependency style of g++
+configure:3097: result: gcc3
+configure:3166: checking for pkg-config
+configure:3184: found /usr/bin/pkg-config
+configure:3196: result: /usr/bin/pkg-config
+configure:3221: checking pkg-config is at least version 0.9.0
+configure:3224: result: yes
+configure:3234: checking for GTKMM_3_0
+configure:3241: $PKG_CONFIG --exists --print-errors "gtkmm-3.0 >= 3.16"
+configure:3244: $? = 0
+configure:3258: $PKG_CONFIG --exists --print-errors "gtkmm-3.0 >= 3.16"
+configure:3261: $? = 0
+configure:3319: result: yes
+configure:3436: checking that generated files are newer than configure
+configure:3442: result: done
+configure:3465: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -138,11 +149,11 @@ generated by GNU Autoconf 2.69.  Invocation command line was
 
 on bureau01
 
-config.status:840: creating Makefile
-config.status:840: creating src/Makefile
-config.status:840: creating config.h
-config.status:1021: config.h is unchanged
-config.status:1069: executing depfiles commands
+config.status:853: creating Makefile
+config.status:853: creating src/Makefile
+config.status:853: creating config.h
+config.status:1034: config.h is unchanged
+config.status:1082: executing depfiles commands
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -157,10 +168,20 @@ ac_cv_env_CXXFLAGS_set=
 ac_cv_env_CXXFLAGS_value=
 ac_cv_env_CXX_set=
 ac_cv_env_CXX_value=
+ac_cv_env_GTKMM_3_0_CFLAGS_set=
+ac_cv_env_GTKMM_3_0_CFLAGS_value=
+ac_cv_env_GTKMM_3_0_LIBS_set=
+ac_cv_env_GTKMM_3_0_LIBS_value=
 ac_cv_env_LDFLAGS_set=
 ac_cv_env_LDFLAGS_value=
 ac_cv_env_LIBS_set=
 ac_cv_env_LIBS_value=
+ac_cv_env_PKG_CONFIG_LIBDIR_set=
+ac_cv_env_PKG_CONFIG_LIBDIR_value=
+ac_cv_env_PKG_CONFIG_PATH_set=set
+ac_cv_env_PKG_CONFIG_PATH_value=:/home/dagal/lib/pkgconfig
+ac_cv_env_PKG_CONFIG_set=
+ac_cv_env_PKG_CONFIG_value=
 ac_cv_env_build_alias_set=
 ac_cv_env_build_alias_value=
 ac_cv_env_host_alias_set=
@@ -168,6 +189,7 @@ ac_cv_env_host_alias_value=
 ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
 ac_cv_objext=o
+ac_cv_path_ac_pt_PKG_CONFIG=/usr/bin/pkg-config
 ac_cv_path_install='/usr/bin/install -c'
 ac_cv_path_mkdir=/usr/bin/mkdir
 ac_cv_prog_AWK=gawk
@@ -176,6 +198,8 @@ ac_cv_prog_cxx_g=yes
 ac_cv_prog_make_make_set=yes
 am_cv_CXX_dependencies_compiler_type=gcc3
 am_cv_make_support_nested_variables=yes
+pkg_cv_GTKMM_3_0_CFLAGS='-pthread -I/usr/include/gtkmm-3.0 -I/usr/lib/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib/pangomm-1.4/include -I/usr/include/glibmm-2.4 -I/usr/lib/glibmm-2.4/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/cairomm-1.0 -I/usr/lib/cairomm-1.0/include -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/harfbuzz -I/usr/include/libdrm -I/usr/include/libpng16 -I/usr/include/sigc++-2.0 -I/usr/lib/sigc++-2.0/include -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include '
+pkg_cv_GTKMM_3_0_LIBS='-lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 '
 
 ## ----------------- ##
 ## Output variables. ##
@@ -205,6 +229,8 @@ ECHO_C=''
 ECHO_N='-n'
 ECHO_T=''
 EXEEXT=''
+GTKMM_3_0_CFLAGS='-pthread -I/usr/include/gtkmm-3.0 -I/usr/lib/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib/pangomm-1.4/include -I/usr/include/glibmm-2.4 -I/usr/lib/glibmm-2.4/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/cairomm-1.0 -I/usr/lib/cairomm-1.0/include -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/harfbuzz -I/usr/include/libdrm -I/usr/include/libpng16 -I/usr/include/sigc++-2.0 -I/usr/lib/sigc++-2.0/include -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include '
+GTKMM_3_0_LIBS='-lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 '
 INSTALL_DATA='${INSTALL} -m 644'
 INSTALL_PROGRAM='${INSTALL}'
 INSTALL_SCRIPT='${INSTALL}'
@@ -217,13 +243,16 @@ MAKEINFO='${SHELL} /home/dagal/dev/cpp/audio/missing makeinfo'
 MKDIR_P='/usr/bin/mkdir -p'
 OBJEXT='o'
 PACKAGE='dagaltone'
-PACKAGE_BUGREPORT='bug-automake@gnu.org'
+PACKAGE_BUGREPORT='dejarding@gmail.com'
 PACKAGE_NAME='dagaltone'
 PACKAGE_STRING='dagaltone 0.1'
 PACKAGE_TARNAME='dagaltone'
 PACKAGE_URL=''
 PACKAGE_VERSION='0.1'
 PATH_SEPARATOR=':'
+PKG_CONFIG='/usr/bin/pkg-config'
+PKG_CONFIG_LIBDIR=''
+PKG_CONFIG_PATH=':/home/dagal/lib/pkgconfig'
 SET_MAKE=''
 SHELL='/bin/sh'
 STRIP=''
@@ -277,9 +306,27 @@ target_alias=''
 #define PACKAGE_TARNAME "dagaltone"
 #define PACKAGE_VERSION "0.1"
 #define PACKAGE_STRING "dagaltone 0.1"
-#define PACKAGE_BUGREPORT "bug-automake@gnu.org"
+#define PACKAGE_BUGREPORT "dejarding@gmail.com"
 #define PACKAGE_URL ""
 #define PACKAGE "dagaltone"
 #define VERSION "0.1"
 
 configure: exit 0
+
+## ---------------------- ##
+## Running config.status. ##
+## ---------------------- ##
+
+This file was extended by dagaltone config.status 0.1, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  CONFIG_FILES    = 
+  CONFIG_HEADERS  = 
+  CONFIG_LINKS    = 
+  CONFIG_COMMANDS = 
+  $ ./config.status config.h
+
+on bureau01
+
+config.status:853: creating config.h
+config.status:1034: config.h is unchanged
