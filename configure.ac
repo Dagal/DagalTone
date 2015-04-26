@@ -1,5 +1,5 @@
-AC_INIT([dagaltone], [0.1], [bug-automake@gnu.org])
-AM_INIT_AUTOMAKE([-Wall -Werror foreign])
+AC_INIT([dagaltone], [0.1], [dejarding@gmail.com])
+AM_INIT_AUTOMAKE([-Wall -Werror])
 AC_PROG_CXX
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
