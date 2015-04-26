@@ -100,9 +100,9 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_dagaltone_OBJECTS = dagaltone-main.$(OBJEXT) \
-	dagaltone-c-dagal-tone.$(OBJEXT) \
+	dagaltone-dagaltone.$(OBJEXT) \
 	dagaltone-generallayout.$(OBJEXT) \
-	dagaltone-general-module.$(OBJEXT)
+	dagaltone-generalmodule.$(OBJEXT)
 dagaltone_OBJECTS = $(am_dagaltone_OBJECTS)
 dagaltone_DEPENDENCIES = $(LIBOBJS)
 dagaltone_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
@@ -257,7 +257,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dagaltone_SOURCES = main.cpp c-dagal-tone.cpp generallayout.cpp general-module.cpp
+dagaltone_SOURCES = main.cpp dagaltone.cpp generallayout.cpp generalmodule.cpp
 dagaltone_LDADD = $(LIBOBJS)
 dagaltone_CPPFLAGS = $(GTKMM_3_0_CFLAGS)
 dagaltone_LDFLAGS = $(GTKMM_3_0_LIBS)
@@ -347,9 +347,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-c-dagal-tone.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-general-module.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-dagaltone.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-generallayout.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-generalmodule.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-main.Po@am__quote@
 
 .cpp.o:
@@ -380,19 +380,19 @@ dagaltone-main.obj: main.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-main.obj `if test -f 'main.cpp'; then $(CYGPATH_W) 'main.cpp'; else $(CYGPATH_W) '$(srcdir)/main.cpp'; fi`
 
-dagaltone-c-dagal-tone.o: c-dagal-tone.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-c-dagal-tone.o -MD -MP -MF $(DEPDIR)/dagaltone-c-dagal-tone.Tpo -c -o dagaltone-c-dagal-tone.o `test -f 'c-dagal-tone.cpp' || echo '$(srcdir)/'`c-dagal-tone.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-c-dagal-tone.Tpo $(DEPDIR)/dagaltone-c-dagal-tone.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='c-dagal-tone.cpp' object='dagaltone-c-dagal-tone.o' libtool=no @AMDEPBACKSLASH@
+dagaltone-dagaltone.o: dagaltone.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-dagaltone.o -MD -MP -MF $(DEPDIR)/dagaltone-dagaltone.Tpo -c -o dagaltone-dagaltone.o `test -f 'dagaltone.cpp' || echo '$(srcdir)/'`dagaltone.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-dagaltone.Tpo $(DEPDIR)/dagaltone-dagaltone.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='dagaltone.cpp' object='dagaltone-dagaltone.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-c-dagal-tone.o `test -f 'c-dagal-tone.cpp' || echo '$(srcdir)/'`c-dagal-tone.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-dagaltone.o `test -f 'dagaltone.cpp' || echo '$(srcdir)/'`dagaltone.cpp
 
-dagaltone-c-dagal-tone.obj: c-dagal-tone.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-c-dagal-tone.obj -MD -MP -MF $(DEPDIR)/dagaltone-c-dagal-tone.Tpo -c -o dagaltone-c-dagal-tone.obj `if test -f 'c-dagal-tone.cpp'; then $(CYGPATH_W) 'c-dagal-tone.cpp'; else $(CYGPATH_W) '$(srcdir)/c-dagal-tone.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-c-dagal-tone.Tpo $(DEPDIR)/dagaltone-c-dagal-tone.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='c-dagal-tone.cpp' object='dagaltone-c-dagal-tone.obj' libtool=no @AMDEPBACKSLASH@
+dagaltone-dagaltone.obj: dagaltone.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-dagaltone.obj -MD -MP -MF $(DEPDIR)/dagaltone-dagaltone.Tpo -c -o dagaltone-dagaltone.obj `if test -f 'dagaltone.cpp'; then $(CYGPATH_W) 'dagaltone.cpp'; else $(CYGPATH_W) '$(srcdir)/dagaltone.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-dagaltone.Tpo $(DEPDIR)/dagaltone-dagaltone.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='dagaltone.cpp' object='dagaltone-dagaltone.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-c-dagal-tone.obj `if test -f 'c-dagal-tone.cpp'; then $(CYGPATH_W) 'c-dagal-tone.cpp'; else $(CYGPATH_W) '$(srcdir)/c-dagal-tone.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-dagaltone.obj `if test -f 'dagaltone.cpp'; then $(CYGPATH_W) 'dagaltone.cpp'; else $(CYGPATH_W) '$(srcdir)/dagaltone.cpp'; fi`
 
 dagaltone-generallayout.o: generallayout.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-generallayout.o -MD -MP -MF $(DEPDIR)/dagaltone-generallayout.Tpo -c -o dagaltone-generallayout.o `test -f 'generallayout.cpp' || echo '$(srcdir)/'`generallayout.cpp
@@ -408,19 +408,19 @@ dagaltone-generallayout.obj: generallayout.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-generallayout.obj `if test -f 'generallayout.cpp'; then $(CYGPATH_W) 'generallayout.cpp'; else $(CYGPATH_W) '$(srcdir)/generallayout.cpp'; fi`
 
-dagaltone-general-module.o: general-module.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-general-module.o -MD -MP -MF $(DEPDIR)/dagaltone-general-module.Tpo -c -o dagaltone-general-module.o `test -f 'general-module.cpp' || echo '$(srcdir)/'`general-module.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-general-module.Tpo $(DEPDIR)/dagaltone-general-module.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='general-module.cpp' object='dagaltone-general-module.o' libtool=no @AMDEPBACKSLASH@
+dagaltone-generalmodule.o: generalmodule.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-generalmodule.o -MD -MP -MF $(DEPDIR)/dagaltone-generalmodule.Tpo -c -o dagaltone-generalmodule.o `test -f 'generalmodule.cpp' || echo '$(srcdir)/'`generalmodule.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-generalmodule.Tpo $(DEPDIR)/dagaltone-generalmodule.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='generalmodule.cpp' object='dagaltone-generalmodule.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-general-module.o `test -f 'general-module.cpp' || echo '$(srcdir)/'`general-module.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-generalmodule.o `test -f 'generalmodule.cpp' || echo '$(srcdir)/'`generalmodule.cpp
 
-dagaltone-general-module.obj: general-module.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-general-module.obj -MD -MP -MF $(DEPDIR)/dagaltone-general-module.Tpo -c -o dagaltone-general-module.obj `if test -f 'general-module.cpp'; then $(CYGPATH_W) 'general-module.cpp'; else $(CYGPATH_W) '$(srcdir)/general-module.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-general-module.Tpo $(DEPDIR)/dagaltone-general-module.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='general-module.cpp' object='dagaltone-general-module.obj' libtool=no @AMDEPBACKSLASH@
+dagaltone-generalmodule.obj: generalmodule.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-generalmodule.obj -MD -MP -MF $(DEPDIR)/dagaltone-generalmodule.Tpo -c -o dagaltone-generalmodule.obj `if test -f 'generalmodule.cpp'; then $(CYGPATH_W) 'generalmodule.cpp'; else $(CYGPATH_W) '$(srcdir)/generalmodule.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-generalmodule.Tpo $(DEPDIR)/dagaltone-generalmodule.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='generalmodule.cpp' object='dagaltone-generalmodule.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-general-module.obj `if test -f 'general-module.cpp'; then $(CYGPATH_W) 'general-module.cpp'; else $(CYGPATH_W) '$(srcdir)/general-module.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-generalmodule.obj `if test -f 'generalmodule.cpp'; then $(CYGPATH_W) 'generalmodule.cpp'; else $(CYGPATH_W) '$(srcdir)/generalmodule.cpp'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

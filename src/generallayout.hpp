@@ -21,7 +21,7 @@
 #define _GENERALLAYOUT_H_
 
 #include <gtkmm/drawingarea.h>
-#include "general-module.hpp"
+#include "generalmodule.hpp"
 
 class GeneralLayout: public Gtk::DrawingArea
 {
