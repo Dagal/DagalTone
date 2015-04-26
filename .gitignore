@@ -1,0 +1,23 @@
+##############################
+# Tous les fichiers compilés #
+##############################
+
+*.o
+*.Po
+
+##########################
+# Certain fichier précis #
+##########################
+
+Makefile
+missing
+install-sh
+autom4te.cache/*
+depcomp
+
+####################
+# Notre exécutable #
+####################
+
+dagaltone
+
