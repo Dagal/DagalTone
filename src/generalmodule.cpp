@@ -56,7 +56,7 @@ void GeneralModule::update(const double time)
 	if (my > 0.5)
 	{
 		my = my - (my - 0.5) * 2.0;
-		mvy = mvy;
+		mvy = -mvy;
 	}
 }
 
@@ -66,13 +66,14 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 	cr->save();
 	cr->set_line_width(0.01);
 	cr->set_line_cap(Cairo::LINE_CAP_ROUND);
-	cr->set_source_rgba(1.0,0.0,0.0,0.8);
+	cr->set_source_rgba(1.0,1.0,0.0,0.5);
 	cr->rectangle(-0.2 + mx,-0.2 + my,0.4,0.4);
-	cr->fill_preserve();
-	cr->move_to(0,0);
-	cr->line_to(mxdesired,mydesired);
-	cr->restore();
+	cr->fill();
+//	cr->stroke();
+	cr->set_source_rgba(1.0,0.0,0.0,1.0);
+	cr->rectangle(-0.2 + mx,-0.2 + my,0.4,0.4);
 	cr->stroke();
+	cr->restore();
 }
 
 void GeneralModule::moveTo(const double x, const double y)

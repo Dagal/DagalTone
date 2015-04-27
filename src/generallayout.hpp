@@ -20,6 +20,7 @@
 #ifndef _GENERALLAYOUT_H_
 #define _GENERALLAYOUT_H_
 
+#include <list>
 #include <gtkmm/drawingarea.h>
 #include "generalmodule.hpp"
 
@@ -29,7 +30,7 @@ public:
 	 GeneralLayout();
 	 virtual ~GeneralLayout();
 
-	 GeneralModule mGM;
+	 std::list<GeneralModule*> mGMs;
 
 	 
 protected:

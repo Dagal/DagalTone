@@ -23,9 +23,11 @@
 GeneralLayout::GeneralLayout() :
 	Gtk::DrawingArea()
 {
-		mGM.moveTo(-0.5,-0.2);
-		
-		Glib::signal_timeout().connect(sigc::mem_fun(*this,&GeneralLayout::on_timeout),20);
+	GeneralModule* GM = new GeneralModule();
+	mGMs.push_back(GM);
+	GM->moveTo(-0.5,-0.2);
+
+	Glib::signal_timeout().connect(sigc::mem_fun(*this,&GeneralLayout::on_timeout),20);
 }
 
 GeneralLayout::~GeneralLayout()
@@ -45,22 +47,25 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
 	// Paramètres par défaut
 	cr->set_line_width(0.02);
-  cr->save();
-	cr->set_source_rgba(0.337,0.612,0.117,0.9);
+
+	// Définition de la couleur de fond
+	cr->set_source_rgba(0.2,0.2,0.3,1.0);
 	cr->paint();
-	cr->restore();
 
 	// Dessin du fond d'écran
-	cr->arc(0, 0, 0.42, 0, 2*M_PI);
 	cr->save();
-	cr->set_source_rgba(1.0,1.0,1.0,0.8);
-	cr->fill_preserve();
-	cr->restore();
+	cr->set_source_rgba(0.0,0.0,0.0,1.0);
+	cr->arc(0, 0, 0.42, 0, 2*M_PI);
+	cr->fill();
+	cr->set_source_rgba(1.0,1.0,1.0,1.0);
+	cr->arc(0, 0, 0.42, 0, 2*M_PI);
 	cr->stroke();
+	cr->restore();
 
 	// Affichage des modules
-	mGM.update(20);
-	mGM.draw(cr);
+	std::list<GeneralModule*>::iterator it = mGMs.begin();
+	(*it)->update(20);
+	(*it)->draw(cr);
 	
 	cr->clip();
 	
