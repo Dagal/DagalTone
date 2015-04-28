@@ -24,6 +24,16 @@ GeneralModule::GeneralModule()
 {
 	mxdesired = mydesired = 0.0;
 	breaker = 0.984;
+
+	mBorderR = 1.0;
+	mBorderG = 0.0;
+	mBorderB = 0.0;
+	mBorderA = 1.0;
+
+	mBackgroundR = 1.0;
+	mBackgroundG = 1.0;
+	mBackgroundB = 0.0;
+	mBackgroundA = 0.5;
 }
 
 GeneralModule::~GeneralModule()
@@ -66,11 +76,11 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 	cr->save();
 	cr->set_line_width(0.01);
 	cr->set_line_cap(Cairo::LINE_CAP_ROUND);
-	cr->set_source_rgba(1.0,1.0,0.0,0.5);
+	cr->set_source_rgba(mBackgroundR, mBackgroundG, mBackgroundB, mBackgroundA);
 	cr->rectangle(-0.2 + mx,-0.2 + my,0.4,0.4);
 	cr->fill();
 //	cr->stroke();
-	cr->set_source_rgba(1.0,0.0,0.0,1.0);
+	cr->set_source_rgba(mBorderR, mBorderG, mBorderB, mBorderA);
 	cr->rectangle(-0.2 + mx,-0.2 + my,0.4,0.4);
 	cr->stroke();
 	cr->restore();

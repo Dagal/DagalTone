@@ -40,6 +40,18 @@ private:
 	 double max,may;	// Accélération
 	 double breaker;	// coéficient de freinage
 
+	// Couleur du bord
+	double mBorderR;
+	double mBorderG;
+	double mBorderB;
+	double mBorderA;
+
+	// Couleur du fond
+	double mBackgroundR;
+	double mBackgroundG;
+	double mBackgroundB;
+	double mBackgroundA;
+
 };
 
 #endif // _GENERAL_MODULE_H_
