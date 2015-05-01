@@ -27,19 +27,22 @@
 class GeneralLayout: public Gtk::DrawingArea
 {
 public:
-	 GeneralLayout();
-	 virtual ~GeneralLayout();
+	GeneralLayout();
+	virtual ~GeneralLayout();
 
-	 std::list<GeneralModule*> mGMs;
+	void randomAllModulePosition();
 
-	 
+	std::list<GeneralModule*> mGMs;
+
 protected:
-	 virtual bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr);
-
-	 bool on_timeout();
+	virtual bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr);
+	bool on_timeout();
 
 private:
-
+	double mxZoom, myZoom;
+	bool mautoZoom;
+	double mxPan, myPan;
+	bool mautoPan;
 };
 
 #endif // _GENERALLAYOUT_H_

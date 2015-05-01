@@ -25,20 +25,34 @@
 class GeneralModule
 {
 public:
-	 GeneralModule();
-	 virtual ~GeneralModule();
-	 void draw(const Cairo::RefPtr<Cairo::Context>& cr) const;
-	 void moveTo(const double x, const double y);
-	 void update(const double time);
+	GeneralModule();
+	virtual ~GeneralModule();
+	
+	void draw(const Cairo::RefPtr<Cairo::Context>& cr) const;
+	void moveTo(const double x,
+							const double y);
+	void ramdomMove(const double x1,
+									const double y1,
+									const double x2,
+									const double y2);
+	void setBorderColor(const double r,
+											const double g,
+											const double b,
+											const double a);
+	void setBackgroundColor(const double r,
+													const double g,
+													const double b,
+													const double a);
+	void update(const double time);
 
 protected:
 
 private:
-	 double mxdesired, mydesired; // Position à atteindre
-	 double mx,my;	// Position
-	 double mvx,mvy;	// Vitesse
-	 double max,may;	// Accélération
-	 double breaker;	// coéficient de freinage
+	double mxdesired, mydesired; // Position à atteindre
+	double mx,my;	// Position
+	double mvx,mvy;	// Vitesse
+	double max,may;	// Accélération
+	double breaker;	// coéficient de freinage
 
 	// Couleur du bord
 	double mBorderR;
@@ -52,6 +66,8 @@ private:
 	double mBackgroundB;
 	double mBackgroundA;
 
+	// Taille
+	double xSize, ySize;
 };
 
 #endif // _GENERAL_MODULE_H_

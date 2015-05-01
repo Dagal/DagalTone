@@ -25,15 +25,12 @@ GeneralModule::GeneralModule()
 	mxdesired = mydesired = 0.0;
 	breaker = 0.984;
 
-	mBorderR = 1.0;
-	mBorderG = 0.0;
-	mBorderB = 0.0;
-	mBorderA = 1.0;
+	xSize = 1;
+	ySize = 1;
 
-	mBackgroundR = 1.0;
-	mBackgroundG = 1.0;
-	mBackgroundB = 0.0;
-	mBackgroundA = 0.5;
+	setBorderColor(1.0,0.0,0.0,1.0);
+
+	setBackgroundColor(1.0,0.0,1.0,0.5);
 }
 
 GeneralModule::~GeneralModule()
@@ -90,4 +87,35 @@ void GeneralModule::moveTo(const double x, const double y)
 {
 	mxdesired = x;
 	mydesired = y;
+}
+
+void GeneralModule::ramdomMove(const double x1,
+															 const double y1,
+															 const double x2,
+															 const double y2)
+{
+	double x = (x2 - x1) * rand() / (double)RAND_MAX + x1;
+	double y = (y2 - y1) * rand() / (double)RAND_MAX + y1;
+}
+
+void GeneralModule::setBorderColor(const double r,
+																	 const double g,
+																	 const double b,
+																	 const double a)
+{
+	mBorderR = r;
+	mBorderG = g;
+	mBorderB = b;
+	mBorderA = a;
+}
+
+void GeneralModule::setBackgroundColor(const double r,
+																			 const double g,
+																			 const double b,
+																			 const double a)
+{
+	mBackgroundR = r;
+	mBackgroundG = g;
+	mBackgroundB = b;
+	mBackgroundA = a;
 }

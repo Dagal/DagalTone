@@ -27,6 +27,13 @@ GeneralLayout::GeneralLayout() :
 	mGMs.push_back(GM);
 	GM->moveTo(-0.5,-0.2);
 
+	mxZoom = 1.0;
+	myZoom = 1.0;
+	mautoZoom = true;
+	mxPan = 0.0;
+	myPan = 0.0;
+	mautoPan = true;
+
 	Glib::signal_timeout().connect(sigc::mem_fun(*this,&GeneralLayout::on_timeout),20);
 }
 
@@ -41,10 +48,13 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 	const int width = allocation.get_width();
 	const int height = allocation.get_height();
 
-	// Taille unitaire et centre au millieu de la surface
-	cr->scale(width,height);
-	cr->translate(0.5,0.5);
+	// Centrage
+	cr->translate(width / 2.0, height / 2.0);
 
+	// Taille unitaire
+	cr->scale((width<height)?width:height,
+						(width<height)?width:height);
+	
 	// Paramètres par défaut
 	cr->set_line_width(0.02);
 
@@ -61,6 +71,14 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 	cr->arc(0, 0, 0.42, 0, 2*M_PI);
 	cr->stroke();
 	cr->restore();
+
+	// Gestion du zoom
+	cr->scale(mautoZoom?mxZoom:1.0,
+						mautoZoom?myZoom:1.0);
+
+	// Position automatique
+	cr->translate(mautoPan?mxPan:0.0,
+								mautoPan?myPan:0.0);
 
 	// Affichage des modules
 	std::list<GeneralModule*>::iterator it = mGMs.begin();
@@ -81,4 +99,13 @@ bool GeneralLayout::on_timeout()
 		win->invalidate_rect(r, false);
 	}
 	return true;
+}
+
+void GeneralLayout::randomAllModulePosition()
+{
+	std::list<GeneralModule*>::iterator it = mGMs.begin();
+	while(it != mGMs.end())
+		{
+			it++;
+		}
 }
