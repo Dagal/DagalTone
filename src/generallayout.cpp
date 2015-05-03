@@ -27,14 +27,24 @@ GeneralLayout::GeneralLayout() :
 	mGMs.push_back(GM);
 	GM->moveTo(-0.5,-0.2);
 
-	mxZoom = 1.0;
-	myZoom = 1.0;
+	GM = new GeneralModule();
+	mGMs.push_back(GM);
+	GM->moveTo(0.3,0.1);
+
+	GM = new GeneralModule();
+	mGMs.push_back(GM);
+	GM->moveTo(0.2,0.4);
+
+	mZoom.set(1.0,1.0); // Zoom 1:1
 	mautoZoom = true;
-	mxPan = 0.0;
-	myPan = 0.0;
+	mlockZoom = true;
+	mPan.set(0.0,0.0); // Origine au centre
 	mautoPan = true;
 
-	Glib::signal_timeout().connect(sigc::mem_fun(*this,&GeneralLayout::on_timeout),20);
+	Glib::signal_timeout().connect
+		(sigc::mem_fun(*this,
+									 &GeneralLayout::on_timeout),
+		 20);
 }
 
 GeneralLayout::~GeneralLayout()
@@ -73,17 +83,29 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 	cr->restore();
 
 	// Gestion du zoom
-	cr->scale(mautoZoom?mxZoom:1.0,
-						mautoZoom?myZoom:1.0);
+	cr->scale(mautoZoom?mZoom.getX():1.0,
+						mautoZoom?mZoom.getY():1.0);
 
 	// Position automatique
-	cr->translate(mautoPan?mxPan:0.0,
-								mautoPan?myPan:0.0);
+	cr->translate(mautoPan?mPan.getX():0.0,
+								mautoPan?mPan.getY():0.0);
 
-	// Affichage des modules
+	// Affichage et contrôle des modules
 	std::list<GeneralModule*>::iterator it = mGMs.begin();
-	(*it)->update(20);
-	(*it)->draw(cr);
+	while (it != mGMs.end())
+		{
+			(*it)->update(20); // Mise à jour des positions
+			// Détection de collision avec le reste des modules
+			std::list<GeneralModule*>::iterator it2 = it;
+			it2++;
+			while (it2 != mGMs.end())
+				{
+					(*it)->collide(*it2);
+					it2++;
+				}
+			(*it)->draw(cr); // Dessin des modules
+			it++;
+		}
 	
 	cr->clip();
 	

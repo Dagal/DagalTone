@@ -21,16 +21,19 @@
 #define _GENERAL_MODULE_H_
 
 #include <gtkmm/drawingarea.h>
+#include "vector2D.hpp"
 
 class GeneralModule
 {
 public:
 	GeneralModule();
 	virtual ~GeneralModule();
-	
+
+	void collide(GeneralModule* gm);
 	void draw(const Cairo::RefPtr<Cairo::Context>& cr) const;
 	void moveTo(const double x,
 							const double y);
+	void moveTo(const Vector2D& destination);
 	void ramdomMove(const double x1,
 									const double y1,
 									const double x2,
@@ -48,11 +51,11 @@ public:
 protected:
 
 private:
-	double mxdesired, mydesired; // Position à atteindre
-	double mx,my;	// Position
-	double mvx,mvy;	// Vitesse
-	double max,may;	// Accélération
-	double breaker;	// coéficient de freinage
+	Vector2D mDesired; // Position à atteindre
+	Vector2D mPosition;	// Position
+	Vector2D mSpeed;	// Vitesse
+	Vector2D mAcceleration;	// Accélération
+	double mBreaker;	// coéficient de freinage
 
 	// Couleur du bord
 	double mBorderR;
@@ -67,7 +70,7 @@ private:
 	double mBackgroundA;
 
 	// Taille
-	double xSize, ySize;
+	Vector2D mSize;
 };
 
 #endif // _GENERAL_MODULE_H_

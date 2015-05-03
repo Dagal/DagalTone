@@ -22,12 +22,11 @@
 
 GeneralModule::GeneralModule()
 {
-	mxdesired = mydesired = 0.0;
-	breaker = 0.984;
+	mDesired.set(0.0,0.0);
+	mBreaker = 0.984;
 
-	xSize = 1;
-	ySize = 1;
-
+	mSize.set(1.0,1.0);
+	
 	setBorderColor(1.0,0.0,0.0,1.0);
 
 	setBackgroundColor(1.0,0.0,1.0,0.5);
@@ -37,33 +36,50 @@ GeneralModule::~GeneralModule()
 {
 }
 
+void GeneralModule::collide(GeneralModule* gm)
+{
+	
+}
+
+
 void GeneralModule::update(const double time)
 {
-	max = (mxdesired - mx);
-	may = (mydesired - my);
-	mvx = (mvx + max * time / 1000.0) * breaker;
-	mvy = (mvy + may * time / 1000.0) * breaker;
-	mx = mx + mvx * time / 1000.0 + max * time * time / 2000000.0;
-	my = my + mvy * time / 1000.0 + may * time * time / 2000000.0;
-	if (mx < -0.5)
+	mAcceleration.setX((mDesired.getX() - mPosition.getX()));
+	mAcceleration.setY((mDesired.getY() - mPosition.getY()));
+	mSpeed.setX((mSpeed.getX() +
+							 mAcceleration.getX() * time / 1000.0) * mBreaker);
+	mSpeed.setY((mSpeed.getY() +
+							 mAcceleration.getY() * time / 1000.0) * mBreaker);
+	mPosition.setX(mPosition.getX() +
+								 mSpeed.getX() * time / 1000.0 +
+								 mAcceleration.getX() * time * time / 2000000.0);
+	mPosition.setY(mPosition.getY() +
+								 mSpeed.getY() * time / 1000.0 +
+								 mAcceleration.getY() * time * time / 2000000.0);
+	
+	if (mPosition.getX() < -0.5)
 	{
-		mx = mx + (-0.5 - mx) * 2.0;
-		mvx = -mvx;
+		mPosition.setX(mPosition.getX() +
+									 (-0.5 - mPosition.getX()) * 2.0);
+		mSpeed.setX(-mSpeed.getX());
 	}
-	if (mx > 0.5)
+	if (mPosition.getX() > 0.5)
 	{
-		mx = mx - (mx - 0.5) * 2.0;
-		mvx = -mvx;
+		mPosition.setX(mPosition.getX() -
+									 (mPosition.getX() - 0.5) * 2.0);
+		mSpeed.setX(-mSpeed.getX());
 	}
-	if (my < -0.5)
+	if (mPosition.getY() < -0.5)
 	{
-		my = my + (-0.5 - my) * 2.0;
-		mvy = -mvy;
+		mPosition.setY(mPosition.getX() +
+									 (-0.5 - mPosition.getY()) * 2.0);
+		mSpeed.setY(-mSpeed.getY());
 	}
-	if (my > 0.5)
+	if (mPosition.getY() > 0.5)
 	{
-		my = my - (my - 0.5) * 2.0;
-		mvy = -mvy;
+		mPosition.setY(mPosition.getY() -
+									 (mPosition.getY() - 0.5) * 2.0);
+		mSpeed.setY(-mSpeed.getY());
 	}
 }
 
@@ -73,20 +89,31 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 	cr->save();
 	cr->set_line_width(0.01);
 	cr->set_line_cap(Cairo::LINE_CAP_ROUND);
-	cr->set_source_rgba(mBackgroundR, mBackgroundG, mBackgroundB, mBackgroundA);
-	cr->rectangle(-0.2 + mx,-0.2 + my,0.4,0.4);
+	cr->set_source_rgba(mBackgroundR,
+											mBackgroundG,
+											mBackgroundB,
+											mBackgroundA);
+	cr->rectangle(-0.2 + (double)(mPosition.getX()),
+								-0.2 + (double)(mPosition.getY()),
+								0.4,
+								0.4);
 	cr->fill();
 //	cr->stroke();
-	cr->set_source_rgba(mBorderR, mBorderG, mBorderB, mBorderA);
-	cr->rectangle(-0.2 + mx,-0.2 + my,0.4,0.4);
+	cr->set_source_rgba(mBorderR,
+											mBorderG,
+											mBorderB,
+											mBorderA);
+	cr->rectangle(-0.2 + (double)(mPosition.getX()),
+								-0.2 + (double)(mPosition.getY()),
+								0.4,
+								0.4);
 	cr->stroke();
 	cr->restore();
 }
 
 void GeneralModule::moveTo(const double x, const double y)
 {
-	mxdesired = x;
-	mydesired = y;
+	mDesired.set(x,y);
 }
 
 void GeneralModule::ramdomMove(const double x1,

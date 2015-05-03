@@ -23,6 +23,7 @@
 #include <list>
 #include <gtkmm/drawingarea.h>
 #include "generalmodule.hpp"
+#include "vector2D.hpp"
 
 class GeneralLayout: public Gtk::DrawingArea
 {
@@ -39,9 +40,10 @@ protected:
 	bool on_timeout();
 
 private:
-	double mxZoom, myZoom;
+	Vector2D mZoom;
 	bool mautoZoom;
-	double mxPan, myPan;
+	bool mlockZoom;
+	Vector2D mPan;
 	bool mautoPan;
 };
 

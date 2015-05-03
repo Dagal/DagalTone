@@ -102,7 +102,7 @@ PROGRAMS = $(bin_PROGRAMS)
 am_dagaltone_OBJECTS = dagaltone-main.$(OBJEXT) \
 	dagaltone-dagaltone.$(OBJEXT) \
 	dagaltone-generallayout.$(OBJEXT) \
-	dagaltone-generalmodule.$(OBJEXT)
+	dagaltone-generalmodule.$(OBJEXT) dagaltone-vector2D.$(OBJEXT)
 dagaltone_OBJECTS = $(am_dagaltone_OBJECTS)
 dagaltone_DEPENDENCIES = $(LIBOBJS)
 dagaltone_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
@@ -257,7 +257,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dagaltone_SOURCES = main.cpp dagaltone.cpp generallayout.cpp generalmodule.cpp
+dagaltone_SOURCES = main.cpp dagaltone.cpp generallayout.cpp generalmodule.cpp vector2D.cpp
 dagaltone_LDADD = $(LIBOBJS)
 dagaltone_CPPFLAGS = $(GTKMM_3_0_CFLAGS)
 dagaltone_LDFLAGS = $(GTKMM_3_0_LIBS)
@@ -351,6 +351,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-generallayout.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-generalmodule.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-vector2D.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -421,6 +422,20 @@ dagaltone-generalmodule.obj: generalmodule.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='generalmodule.cpp' object='dagaltone-generalmodule.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-generalmodule.obj `if test -f 'generalmodule.cpp'; then $(CYGPATH_W) 'generalmodule.cpp'; else $(CYGPATH_W) '$(srcdir)/generalmodule.cpp'; fi`
+
+dagaltone-vector2D.o: vector2D.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-vector2D.o -MD -MP -MF $(DEPDIR)/dagaltone-vector2D.Tpo -c -o dagaltone-vector2D.o `test -f 'vector2D.cpp' || echo '$(srcdir)/'`vector2D.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-vector2D.Tpo $(DEPDIR)/dagaltone-vector2D.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='vector2D.cpp' object='dagaltone-vector2D.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-vector2D.o `test -f 'vector2D.cpp' || echo '$(srcdir)/'`vector2D.cpp
+
+dagaltone-vector2D.obj: vector2D.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-vector2D.obj -MD -MP -MF $(DEPDIR)/dagaltone-vector2D.Tpo -c -o dagaltone-vector2D.obj `if test -f 'vector2D.cpp'; then $(CYGPATH_W) 'vector2D.cpp'; else $(CYGPATH_W) '$(srcdir)/vector2D.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-vector2D.Tpo $(DEPDIR)/dagaltone-vector2D.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='vector2D.cpp' object='dagaltone-vector2D.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-vector2D.obj `if test -f 'vector2D.cpp'; then $(CYGPATH_W) 'vector2D.cpp'; else $(CYGPATH_W) '$(srcdir)/vector2D.cpp'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

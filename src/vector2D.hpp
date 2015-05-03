@@ -9,8 +9,14 @@ public:
   Vector2D(const Vector2D& v);
   virtual ~Vector2D();
 
-  double getX();
-  double getY();
+  Vector2D& operator=(const Vector2D& v);
+  Vector2D& operator+=(const Vector2D& v);
+  Vector2D& operator-=(const Vector2D& v);
+  Vector2D& operator*=(const double s);
+  Vector2D& operator/=(const double s);
+
+  double getX() const;
+  double getY() const;
 
   void setX(const double x);
   void setY(const double y);
@@ -20,5 +26,5 @@ protected:
 
 private:
   double mx,my;
-
+};
 #endif // _VECTOR2D_HPP_
