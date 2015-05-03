@@ -93,8 +93,8 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 											mBackgroundG,
 											mBackgroundB,
 											mBackgroundA);
-	cr->rectangle(-0.2 + (double)(mPosition.getX()),
-								-0.2 + (double)(mPosition.getY()),
+	cr->rectangle(-0.2 + mPosition.getX(),
+								-0.2 + mPosition.getY(),
 								0.4,
 								0.4);
 	cr->fill();
@@ -103,8 +103,8 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 											mBorderG,
 											mBorderB,
 											mBorderA);
-	cr->rectangle(-0.2 + (double)(mPosition.getX()),
-								-0.2 + (double)(mPosition.getY()),
+	cr->rectangle(-0.2 + mPosition.getX(),
+								-0.2 + mPosition.getY(),
 								0.4,
 								0.4);
 	cr->stroke();
