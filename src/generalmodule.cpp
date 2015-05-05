@@ -36,9 +36,22 @@ GeneralModule::~GeneralModule()
 {
 }
 
-void GeneralModule::collide(GeneralModule* gm)
+void GeneralModule::collide(GeneralModule& gm)
 {
-	
+	if((mPosition.getX() + mSize.getX() * 1.1 > gm.getPosition().getX() - gm.getSize().getX() * 1.1) &&
+		 (mPosition.getX() - mSize.getX() * 1.1 < gm.getPosition().getX() + gm.getSize().getX() * 1.1) &&
+		 (mPosition.getY() + mSize.getY() * 1.1 > gm.getPosition().getY() - gm.getSize().getY() * 1.1) &&
+		 (mPosition.getY() - mSize.getY() * 1.1 < gm.getPosition().getY() + gm.getSize().getY() * 1.1))
+		{
+			mAcceleration = mPosition - gm.mPosition;
+			
+			//mAcceleration.set(mPosition.getX()-
+			//									gm.getPosition().getX(),
+			//									mPosition.getY()-
+			//									gm.getPosition().getY());
+			
+			//todo: make collision move... mDesired or mAcceleration must be changed...
+		}
 }
 
 
@@ -109,6 +122,31 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 								0.4);
 	cr->stroke();
 	cr->restore();
+}
+
+const Vector2D& GeneralModule::getDestination() const
+{
+	return mDesired;
+}
+
+const Vector2D& GeneralModule::getPosition() const
+{
+	return mPosition;
+}
+
+const Vector2D& GeneralModule::getSpeed() const
+{
+	return mSpeed;
+}
+
+const Vector2D& GeneralModule::getAcceleration() const
+{
+	return mAcceleration;
+}
+
+const Vector2D& GeneralModule::getSize() const
+{
+	return mSize;
 }
 
 void GeneralModule::moveTo(const double x, const double y)

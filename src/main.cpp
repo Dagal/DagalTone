@@ -21,6 +21,8 @@
 
 #include <gtkmm/application.h>
 
+//#include "vector2D.hpp"
+
 #include "dagaltone.hpp"
 
 int main (int argc, char *argv[])

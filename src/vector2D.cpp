@@ -86,5 +86,30 @@ void Vector2D::set(const double x, const double y)
   my = y;
 }
 
+Vector2D operator+(Vector2D& v1, Vector2D& v2)
+{
+  Vector2D ret(v1);
+  ret += v2;
+  return ret;
+}
 
-  
+Vector2D operator-(Vector2D& v1, Vector2D& v2)
+{
+  Vector2D ret(v1);
+  ret -= v2;
+  return ret;
+}
+
+Vector2D operator*(Vector2D& v1, double s)
+{
+  Vector2D ret(v1);
+  ret *= s;
+  return ret;
+}
+
+Vector2D operator/(Vector2D& v1, double s)
+{
+  Vector2D ret(v1);
+  ret /= s;
+  return ret;
+}

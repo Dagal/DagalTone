@@ -29,8 +29,13 @@ public:
 	GeneralModule();
 	virtual ~GeneralModule();
 
-	void collide(GeneralModule* gm);
+	void collide(GeneralModule& gm);
 	void draw(const Cairo::RefPtr<Cairo::Context>& cr) const;
+	const Vector2D& getDestination() const;
+	const Vector2D& getPosition() const;
+	const Vector2D& getSpeed() const;
+	const Vector2D& getAcceleration() const;
+	const Vector2D& getSize() const;
 	void moveTo(const double x,
 							const double y);
 	void moveTo(const Vector2D& destination);

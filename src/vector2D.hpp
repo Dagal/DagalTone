@@ -22,9 +22,16 @@ public:
   void setY(const double y);
   void set(const double x, const double y);
 
+  
 protected:
 
 private:
   double mx,my;
 };
+
+Vector2D operator+(Vector2D& v1, Vector2D& v2);
+Vector2D operator-(Vector2D& v1, Vector2D& v2);
+Vector2D operator*(Vector2D& v1, double s);
+Vector2D operator/(Vector2D& v1, double s);
+
 #endif // _VECTOR2D_HPP_

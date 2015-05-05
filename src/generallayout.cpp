@@ -100,7 +100,7 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 			it2++;
 			while (it2 != mGMs.end())
 				{
-					(*it)->collide(*it2);
+					(*it)->collide(**it2);
 					it2++;
 				}
 			(*it)->draw(cr); // Dessin des modules
