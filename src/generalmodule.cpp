@@ -27,9 +27,9 @@ GeneralModule::GeneralModule()
 
 	mSize.set(1.0,1.0);
 	
-	setBorderColor(1.0,0.0,0.0,1.0);
+	setColor(1.0,0.0,0.0);
 
-	setBackgroundColor(1.0,0.0,1.0,0.5);
+	setAlpha(0.5);
 }
 
 GeneralModule::~GeneralModule()
@@ -38,19 +38,80 @@ GeneralModule::~GeneralModule()
 
 void GeneralModule::collide(GeneralModule& gm)
 {
-	if((mPosition.getX() + mSize.getX() * 1.1 > gm.getPosition().getX() - gm.getSize().getX() * 1.1) &&
-		 (mPosition.getX() - mSize.getX() * 1.1 < gm.getPosition().getX() + gm.getSize().getX() * 1.1) &&
-		 (mPosition.getY() + mSize.getY() * 1.1 > gm.getPosition().getY() - gm.getSize().getY() * 1.1) &&
-		 (mPosition.getY() - mSize.getY() * 1.1 < gm.getPosition().getY() + gm.getSize().getY() * 1.1))
+	if((mPosition.getX() + mSize.getX() / 2.0 >
+			gm.mPosition.getX() - gm.mSize.getX() / 2.0) &&
+		 (mPosition.getX() - mSize.getX() / 2.0 <
+			gm.mPosition.getX() + gm.mSize.getX() / 2.0) &&
+		 (mPosition.getY() + mSize.getY() / 2.0 >
+			gm.mPosition.getY() - gm.mSize.getY() / 2.0) &&
+		 (mPosition.getY() - mSize.getY() / 2.0 <
+			gm.mPosition.getY() + gm.mSize.getY() / 2.0))
 		{
-			mAcceleration = mPosition - gm.mPosition;
+			mBlue = 1.0;
+			gm.mGreen = 1.0;
+			// Équation d'une droite y = p.x + d
+			// p = (y2 - y1) / (x2 - x1)
+			// Dans notre cas (x1,y1) correspond au centre du module
+			// Et (x2,y2) au coin supérieur droit du module
+			// Par simplification mathématique, on obtient
+			// p = SizeY / SizeX
+			// Ce qui correspond à la tangente ... à réfléchir pour la suite
+			double p1 = mSize.getY() / mSize.getX();
+			// d = y - p.x
+			// Si on prend la position du module comme point de passage, on a
+			double d1 = mPosition.getY() - p1 * mPosition.getX();
+			// On a besoin des valeurs de la pente inverse également
+			double p2 = -p1;
+			double d2 = mPosition.getY() - p2 * mPosition.getX();
+			Vector2D middleSize = (gm.mSize + mSize) / 2.0;
 			
-			//mAcceleration.set(mPosition.getX()-
-			//									gm.getPosition().getX(),
-			//									mPosition.getY()-
-			//									gm.getPosition().getY());
+			// Comparaison de la position du deuxième point par rapport à la première droite
+			if (gm.mPosition.getY() >= p1 * gm.mPosition.getX() + d1)
+				{
+					// Idem sur l'autre droite
+					if (gm.mPosition.getY() >= p2 * gm.mPosition.getX() + d2)
+						{
+							// On est au dessus
+							gm.moveTo(gm.mPosition.getX(),
+												mPosition.getY() +
+												padding +
+												middleSize.getY());
+						}
+					else
+						{
+							// On est à droite
+							gm.moveTo(mPosition.getX() +
+												padding +
+												middleSize.getX(),
+												gm.mPosition.getY());
+						}
+				}
+			else
+				{
+					// On recommence le même test
+					if (gm.mPosition.getY() >= p2 * gm.mPosition.getX() + d2)
+						{
+							// On est à gauche
+							gm.moveTo(mPosition.getX() -
+												padding -
+												middleSize.getX(),
+												gm.mPosition.getY());
+						}
+					else
+						{
+							// On est en bas
+							gm.moveTo(gm.mPosition.getX(),
+												mPosition.getY() -
+												padding -
+												middleSize.getY());
+						}
+				}
 			
-			//todo: make collision move... mDesired or mAcceleration must be changed...
+		}
+	else
+		{
+			mBlue = 0.0;
+			gm.mGreen = 0.0;
 		}
 }
 
@@ -69,31 +130,6 @@ void GeneralModule::update(const double time)
 	mPosition.setY(mPosition.getY() +
 								 mSpeed.getY() * time / 1000.0 +
 								 mAcceleration.getY() * time * time / 2000000.0);
-	
-	if (mPosition.getX() < -0.5)
-	{
-		mPosition.setX(mPosition.getX() +
-									 (-0.5 - mPosition.getX()) * 2.0);
-		mSpeed.setX(-mSpeed.getX());
-	}
-	if (mPosition.getX() > 0.5)
-	{
-		mPosition.setX(mPosition.getX() -
-									 (mPosition.getX() - 0.5) * 2.0);
-		mSpeed.setX(-mSpeed.getX());
-	}
-	if (mPosition.getY() < -0.5)
-	{
-		mPosition.setY(mPosition.getX() +
-									 (-0.5 - mPosition.getY()) * 2.0);
-		mSpeed.setY(-mSpeed.getY());
-	}
-	if (mPosition.getY() > 0.5)
-	{
-		mPosition.setY(mPosition.getY() -
-									 (mPosition.getY() - 0.5) * 2.0);
-		mSpeed.setY(-mSpeed.getY());
-	}
 }
 
 void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
@@ -102,24 +138,24 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 	cr->save();
 	cr->set_line_width(0.01);
 	cr->set_line_cap(Cairo::LINE_CAP_ROUND);
-	cr->set_source_rgba(mBackgroundR,
-											mBackgroundG,
-											mBackgroundB,
-											mBackgroundA);
-	cr->rectangle(-0.2 + mPosition.getX(),
-								-0.2 + mPosition.getY(),
-								0.4,
-								0.4);
+	cr->set_source_rgba(mRed,
+											mGreen,
+											mBlue,
+											mAlpha);
+	cr->rectangle(mSize.getX() / -2.0 + mPosition.getX(),
+								mSize.getY() / -2.0 + mPosition.getY(),
+								mSize.getX(),
+								mSize.getY());
 	cr->fill();
 //	cr->stroke();
-	cr->set_source_rgba(mBorderR,
-											mBorderG,
-											mBorderB,
-											mBorderA);
-	cr->rectangle(-0.2 + mPosition.getX(),
-								-0.2 + mPosition.getY(),
-								0.4,
-								0.4);
+	cr->set_source_rgba(mRed,
+											mGreen,
+											mBlue,
+											1.0);
+	cr->rectangle(mSize.getX() / -2.0 + mPosition.getX(),
+								mSize.getY() / -2.0 + mPosition.getY(),
+								mSize.getX(),
+								mSize.getY());
 	cr->stroke();
 	cr->restore();
 }
@@ -154,6 +190,22 @@ void GeneralModule::moveTo(const double x, const double y)
 	mDesired.set(x,y);
 }
 
+void GeneralModule::moveTo(const Vector2D& destination)
+{
+	mDesired = destination;
+}
+
+void GeneralModule::relMoveTo(const double x, const double y)
+{
+	Vector2D tmp(x, y);
+	mDesired += tmp;
+}
+
+void GeneralModule::relMoveTo(const Vector2D& destination)
+{
+	mDesired += destination;
+}
+
 void GeneralModule::ramdomMove(const double x1,
 															 const double y1,
 															 const double x2,
@@ -161,26 +213,21 @@ void GeneralModule::ramdomMove(const double x1,
 {
 	double x = (x2 - x1) * rand() / (double)RAND_MAX + x1;
 	double y = (y2 - y1) * rand() / (double)RAND_MAX + y1;
+	moveTo(x,y);
 }
 
-void GeneralModule::setBorderColor(const double r,
-																	 const double g,
-																	 const double b,
-																	 const double a)
+void GeneralModule::setColor(const double r,
+														 const double g,
+														 const double b)
 {
-	mBorderR = r;
-	mBorderG = g;
-	mBorderB = b;
-	mBorderA = a;
+	mRed = r;
+	mGreen = g;
+	mBlue = b;
 }
 
-void GeneralModule::setBackgroundColor(const double r,
-																			 const double g,
-																			 const double b,
-																			 const double a)
+void GeneralModule::setAlpha(const double a)
 {
-	mBackgroundR = r;
-	mBackgroundG = g;
-	mBackgroundB = b;
-	mBackgroundA = a;
+	mAlpha = a;
 }
+
+double GeneralModule::padding = 0.1;

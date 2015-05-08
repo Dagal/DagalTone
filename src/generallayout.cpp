@@ -82,6 +82,32 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 	cr->stroke();
 	cr->restore();
 
+	// Calcul du zoom automatique
+	double maxX, maxY, minX, minY;
+	std::list<GeneralModule*>::iterator it = mGMs.begin();
+	minX = (*it)->getPosition().getX() - (*it)->getSize().getX() / 2.0;
+	maxX = (*it)->getPosition().getX() + (*it)->getSize().getX() / 2.0;
+	minY = (*it)->getPosition().getY() - (*it)->getSize().getY() / 2.0;
+	maxY = (*it)->getPosition().getY() + (*it)->getSize().getY() / 2.0;
+	it++;
+	while (it != mGMs.end())
+		{
+			double x = (*it)->getPosition().getX();
+			double y = (*it)->getPosition().getY();
+			double sx = (*it)->getSize().getX();
+			double sy = (*it)->getSize().getY();
+			if(x - sx < minX) minX = x - sx;
+			if(x + sx > maxX) maxX = x + sx;
+			if(y - sy < minY) minY = y - sy;
+			if(y + sy > maxY) maxY = y + sy;
+			it++;
+		}
+
+	mZoom.set(1.0 / (maxX - minX),
+						1.0 / (maxY - minY));
+	mPan.set((maxX + minX) / -2.0,
+					 (maxY + minY) / -2.0);
+
 	// Gestion du zoom
 	cr->scale(mautoZoom?mZoom.getX():1.0,
 						mautoZoom?mZoom.getY():1.0);
@@ -91,16 +117,18 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 								mautoPan?mPan.getY():0.0);
 
 	// Affichage et contrôle des modules
-	std::list<GeneralModule*>::iterator it = mGMs.begin();
+	it = mGMs.begin();
 	while (it != mGMs.end())
 		{
 			(*it)->update(20); // Mise à jour des positions
 			// Détection de collision avec le reste des modules
-			std::list<GeneralModule*>::iterator it2 = it;
-			it2++;
+			std::list<GeneralModule*>::iterator it2 = mGMs.begin();
 			while (it2 != mGMs.end())
 				{
-					(*it)->collide(**it2);
+					if (it != it2)
+						{
+							(*it)->collide(**it2);
+						}
 					it2++;
 				}
 			(*it)->draw(cr); // Dessin des modules
@@ -128,6 +156,7 @@ void GeneralLayout::randomAllModulePosition()
 	std::list<GeneralModule*>::iterator it = mGMs.begin();
 	while(it != mGMs.end())
 		{
+			(*it)->ramdomMove(-2,-2,2,2);
 			it++;
 		}
 }

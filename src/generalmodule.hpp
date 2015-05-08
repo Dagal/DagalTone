@@ -39,19 +39,21 @@ public:
 	void moveTo(const double x,
 							const double y);
 	void moveTo(const Vector2D& destination);
+	void relMoveTo(const double x,
+								 const double y);
+	void relMoveTo(const Vector2D& destination);
 	void ramdomMove(const double x1,
 									const double y1,
 									const double x2,
 									const double y2);
-	void setBorderColor(const double r,
-											const double g,
-											const double b,
-											const double a);
-	void setBackgroundColor(const double r,
-													const double g,
-													const double b,
-													const double a);
+	void setColor(const double r,
+								const double g,
+								const double b);
+	void setAlpha(const double a);
 	void update(const double time);
+
+	// Espace entre module
+	static double padding;
 
 protected:
 
@@ -62,17 +64,13 @@ private:
 	Vector2D mAcceleration;	// Accélération
 	double mBreaker;	// coéficient de freinage
 
-	// Couleur du bord
-	double mBorderR;
-	double mBorderG;
-	double mBorderB;
-	double mBorderA;
+	// Couleur
+	double mRed;
+	double mGreen;
+	double mBlue;
 
-	// Couleur du fond
-	double mBackgroundR;
-	double mBackgroundG;
-	double mBackgroundB;
-	double mBackgroundA;
+	// Transparance
+	double mAlpha;
 
 	// Taille
 	Vector2D mSize;
