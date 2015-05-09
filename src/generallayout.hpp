@@ -40,9 +40,8 @@ protected:
 	bool on_timeout();
 
 private:
-	Vector2D mZoom;
+	double mZoom;
 	bool mautoZoom;
-	bool mlockZoom;
 	Vector2D mPan;
 	bool mautoPan;
 };

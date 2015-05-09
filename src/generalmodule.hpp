@@ -21,6 +21,7 @@
 #define _GENERAL_MODULE_H_
 
 #include <gtkmm/drawingarea.h>
+#include <glibmm/ustring.h>
 #include "vector2D.hpp"
 
 class GeneralModule
@@ -58,6 +59,8 @@ public:
 protected:
 
 private:
+	Glib::ustring mName; // Nom du module
+	
 	Vector2D mDesired; // Position à atteindre
 	Vector2D mPosition;	// Position
 	Vector2D mSpeed;	// Vitesse
@@ -77,4 +80,3 @@ private:
 };
 
 #endif // _GENERAL_MODULE_H_
-

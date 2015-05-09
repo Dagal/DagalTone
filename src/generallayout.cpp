@@ -18,6 +18,7 @@
  */
 
 #include <glibmm/main.h>
+#include <cmath>
 #include "generallayout.hpp"
 
 GeneralLayout::GeneralLayout() :
@@ -35,9 +36,8 @@ GeneralLayout::GeneralLayout() :
 	mGMs.push_back(GM);
 	GM->moveTo(0.2,0.4);
 
-	mZoom.set(1.0,1.0); // Zoom 1:1
+	mZoom = 1.0; // Zoom 1:1
 	mautoZoom = true;
-	mlockZoom = true;
 	mPan.set(0.0,0.0); // Origine au centre
 	mautoPan = true;
 
@@ -103,14 +103,15 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 			it++;
 		}
 
-	mZoom.set(1.0 / (maxX - minX),
-						1.0 / (maxY - minY));
+	double zx = 1.0 / (maxX - minX);
+	double zy = 1.0 / (maxY - minY);
+	mZoom = (zx<zy)?zx:zy;
 	mPan.set((maxX + minX) / -2.0,
 					 (maxY + minY) / -2.0);
 
 	// Gestion du zoom
-	cr->scale(mautoZoom?mZoom.getX():1.0,
-						mautoZoom?mZoom.getY():1.0);
+	cr->scale(mautoZoom?mZoom:1.0,
+						mautoZoom?mZoom:1.0);
 
 	// Position automatique
 	cr->translate(mautoPan?mPan.getX():0.0,
