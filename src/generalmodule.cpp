@@ -22,6 +22,7 @@
 
 GeneralModule::GeneralModule()
 {
+	mName = "General Module";
 	mDesired.set(0.0,0.0);
 	mBreaker = 0.984;
 

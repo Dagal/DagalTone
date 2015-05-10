@@ -66,8 +66,20 @@ private:
 	 Gtk::Paned mPaned;
 	 Gtk::Frame mFrameLayout1;
 	 Gtk::ToolPalette mToolPalette;
-	 Gtk::ToolItemGroup mToolItemGroup;
 	 Gtk::Frame mFrameLayout;
+
+	// Gestion de la palette
+	Gtk::ToolItemGroup mToolItemGroup;
+	Gtk::ToolItemGroup mInputModuleGroup;
+	Gtk::ToolButton mMidiInputButton;
+	Gtk::ToolButton mAudioInputButton;
+	Gtk::ToolItemGroup mOutputModuleGroup;
+	Gtk::ToolButton mMidiOutputButton;
+	Gtk::ToolButton mAudioOutputButton;
+	Gtk::ToolItemGroup mGeneratorGroup;
+	Gtk::ToolButton mSinusoidGeneratorButton;
+	Gtk::ToolItemGroup mEffectGroup;
+	Gtk::ToolButton mVolumeControlButton;
 
 	 // StatusBar
 	 Gtk::Statusbar mStatusBar;

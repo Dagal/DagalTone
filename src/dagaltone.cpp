@@ -26,6 +26,16 @@ CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
 mMainBox(Gtk::ORIENTATION_VERTICAL),
 mPaned(Gtk::ORIENTATION_HORIZONTAL),
 mToolItemGroup("Groupe de test"),
+mInputModuleGroup("Entrée"),
+mMidiInputButton("Entrées Midi"),
+mAudioInputButton("Entrées Audio"),
+mOutputModuleGroup("Sortie"),
+mMidiOutputButton("Sorties Midi"),
+mAudioOutputButton("Sorties Audio"),
+mGeneratorGroup("Générateur de signaux"),
+mSinusoidGeneratorButton("Sinusoïde"),
+mEffectGroup("Effets"),
+mVolumeControlButton("Contrôle de volume"),
 mButton1("Test Button 1"),
 mButton2("Test Button 2"),
 mButton3("Test Button 3")
@@ -127,13 +137,30 @@ mButton3("Test Button 3")
 	mMainBox.pack_start(mToolBar, Gtk::PACK_SHRINK);
 	mToolBar.add(mButton1);
 
+	// Gestion de la palette
 	mToolItemGroup.insert(mButton2);
 	mToolPalette.add(mToolItemGroup);
+
+	mInputModuleGroup.insert(mMidiInputButton);
+	mInputModuleGroup.insert(mAudioInputButton);
+	mToolPalette.add(mInputModuleGroup);
+
+	mOutputModuleGroup.insert(mMidiOutputButton);
+	mOutputModuleGroup.insert(mAudioOutputButton);
+	mToolPalette.add(mOutputModuleGroup);
+
+	mGeneratorGroup.insert(mSinusoidGeneratorButton);
+	mToolPalette.add(mGeneratorGroup);
+
+	mEffectGroup.insert(mVolumeControlButton);
+	mToolPalette.add(mEffectGroup);
+	
 	mFrameLayout1.add(mToolPalette);
+
 	mPaned.add1(mFrameLayout1);
 	mFrameLayout.add(mGL);
 	mPaned.add2(mFrameLayout);
-//	mLayout.put(mButton3, 100, 100);
+
 	mMainBox.pack_start(mPaned, Gtk::PACK_EXPAND_WIDGET);
 	mMainBox.set_center_widget(mPaned);
 
