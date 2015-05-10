@@ -80,8 +80,8 @@ void GeneralModule::collide(GeneralModule& gm)
 					else
 						{
 							// On est à droite
-							gm.moveTo(mPosition.getX() +
-												padding +
+							gm.moveTo(mPosition.getX() -
+												padding -
 												middleSize.getX(),
 												gm.mPosition.getY());
 						}
@@ -92,8 +92,8 @@ void GeneralModule::collide(GeneralModule& gm)
 					if (gm.mPosition.getY() >= p2 * gm.mPosition.getX() + d2)
 						{
 							// On est à gauche
-							gm.moveTo(mPosition.getX() -
-												padding -
+							gm.moveTo(mPosition.getX() +
+												padding +
 												middleSize.getX(),
 												gm.mPosition.getY());
 						}
