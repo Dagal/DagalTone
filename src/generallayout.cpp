@@ -37,7 +37,7 @@ GeneralLayout::GeneralLayout() :
 	GM->moveTo(0.2,0.4);
 
 	mZoom = 1.0; // Zoom 1:1
-	mautoZoom = true;
+	mautoZoom = false;
 	mPan.set(0.0,0.0); // Origine au centre
 	mautoPan = true;
 
@@ -110,8 +110,8 @@ bool GeneralLayout::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 					 (maxY + minY) / -2.0);
 
 	// Gestion du zoom
-	cr->scale(mautoZoom?mZoom:1.0,
-						mautoZoom?mZoom:1.0);
+	cr->scale(mautoZoom?mZoom:0.001,
+						mautoZoom?mZoom:0.001);
 
 	// Position automatique
 	cr->translate(mautoPan?mPan.getX():0.0,
@@ -157,7 +157,7 @@ void GeneralLayout::randomAllModulePosition()
 	std::list<GeneralModule*>::iterator it = mGMs.begin();
 	while(it != mGMs.end())
 		{
-			(*it)->ramdomMove(-2,-2,2,2);
+			(*it)->ramdomMove(-500,-500,500,500);
 			it++;
 		}
 }

@@ -30,7 +30,6 @@
 #include <gtkmm/toolpalette.h>
 #include <gtkmm/frame.h>
 #include "generallayout.hpp"
-//#include <gtkmm/layout.h>
 #include <gtkmm/statusbar.h>
 #include <gtkmm/toolbutton.h>
 #include <gtkmm/button.h>
@@ -55,7 +54,7 @@ private:
 	 // Child widgets:
 	 Gtk::Box mMainBox;
 
-	 // RÃ©fÃ©rence Action, Menu et ToolBar
+	 // Référence Action, Menu et ToolBar
 	 Glib::RefPtr<Gtk::Builder> m_refMainMenu;
 	 Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
 	 Glib::RefPtr<Gio::SimpleAction> m_refActionRain;
@@ -69,7 +68,6 @@ private:
 	 Gtk::Frame mFrameLayout;
 
 	// Gestion de la palette
-	Gtk::ToolItemGroup mToolItemGroup;
 	Gtk::ToolItemGroup mInputModuleGroup;
 	Gtk::ToolButton mMidiInputButton;
 	Gtk::ToolButton mAudioInputButton;

@@ -18,15 +18,21 @@
  */
 
 #include <iostream>
+#include <pangomm/layout.h>
 #include "generalmodule.hpp"
 
 GeneralModule::GeneralModule()
 {
 	mName = "General Module";
+	// Création du texte
+	mFont.set_family("Monospace");
+	mFont.set_weight(Pango::WEIGHT_BOLD);
+	
 	mDesired.set(0.0,0.0);
 	mBreaker = 0.984;
 
 	mSize.set(1.0,1.0);
+	mBorderSize = 3.0;
 	
 	setColor(1.0,0.0,0.0);
 
@@ -133,11 +139,24 @@ void GeneralModule::update(const double time)
 								 mAcceleration.getY() * time * time / 2000000.0);
 }
 
-void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
+void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
-//	std::cout << "GeneralModule::draw" << std::endl;
+	// Préparation du titre
+	mLayout = Pango::Layout::create(cr);
+	mLayout->set_font_description(mFont);
+	mLayout->set_text(mName);
+	int textWidth, textHeight;
+	mLayout->get_pixel_size(textWidth,
+													textHeight);
+	mTextWidth = (double)textWidth;
+	mTextHeight = (double)textHeight;
+
+	// Adaptation de la taille du module en fonction de la taille du titre
+	mSize.set(mTextWidth + mBorderSize * 2.0,
+						mTextHeight + mBorderSize * 3.0 + mTextWidth); // + le futur reste en dessous
+	
+	// Dessin du fond
 	cr->save();
-	cr->set_line_width(0.01);
 	cr->set_line_cap(Cairo::LINE_CAP_ROUND);
 	cr->set_source_rgba(mRed,
 											mGreen,
@@ -148,7 +167,8 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 								mSize.getX(),
 								mSize.getY());
 	cr->fill();
-//	cr->stroke();
+	// Dessin du cadre
+	cr->set_line_width(mBorderSize);
 	cr->set_source_rgba(mRed,
 											mGreen,
 											mBlue,
@@ -158,6 +178,28 @@ void GeneralModule::draw(const Cairo::RefPtr<Cairo::Context>& cr) const
 								mSize.getX(),
 								mSize.getY());
 	cr->stroke();
+
+	// Affichage du texte dans la couleur du cadre mais plus foncé
+	cr->set_source_rgba(mRed / 5.0,
+											mGreen / 5.0,
+											mBlue / 5.0,
+											1.0);
+	cr->move_to(mPosition.getX() - mTextWidth / 2.0,
+							mPosition.getY() - mSize.getY() / 2.0 + mBorderSize);
+	
+	mLayout->show_in_cairo_context(cr);
+
+	// Ligne de séparation entre le nom du module et le reste de la même couleur que le bord
+	cr->set_source_rgba(mRed,
+											mGreen,
+											mBlue,
+											1.0);
+	cr->move_to(mPosition.getX() - mSize.getX() / 2.0,
+							mPosition.getY() - mSize.getY() / 2.0 + mTextHeight + mBorderSize * 2.0);
+	cr->line_to(mPosition.getX() + mSize.getX() / 2.0,
+							mPosition.getY() - mSize.getY() / 2.0 + mTextHeight + mBorderSize * 2.0);
+	cr->stroke(); // Valider l'affichage des lignes…
+	
 	cr->restore();
 }
 

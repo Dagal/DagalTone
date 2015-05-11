@@ -23,22 +23,21 @@
 #include <gtkmm/menubar.h>
 
 CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
-mMainBox(Gtk::ORIENTATION_VERTICAL),
-mPaned(Gtk::ORIENTATION_HORIZONTAL),
-mToolItemGroup("Groupe de test"),
-mInputModuleGroup("Entrée"),
-mMidiInputButton("Entrées Midi"),
-mAudioInputButton("Entrées Audio"),
-mOutputModuleGroup("Sortie"),
-mMidiOutputButton("Sorties Midi"),
-mAudioOutputButton("Sorties Audio"),
-mGeneratorGroup("Générateur de signaux"),
-mSinusoidGeneratorButton("Sinusoïde"),
-mEffectGroup("Effets"),
-mVolumeControlButton("Contrôle de volume"),
-mButton1("Test Button 1"),
-mButton2("Test Button 2"),
-mButton3("Test Button 3")
+	mMainBox(Gtk::ORIENTATION_VERTICAL),
+	mPaned(Gtk::ORIENTATION_HORIZONTAL),
+	mInputModuleGroup("EntrÃ©e"),
+	mMidiInputButton("EntrÃ©es Midi"),
+	mAudioInputButton("EntrÃ©es Audio"),
+	mOutputModuleGroup("Sortie"),
+	mMidiOutputButton("Sorties Midi"),
+	mAudioOutputButton("Sorties Audio"),
+	mGeneratorGroup("GÃ©nÃ©rateur de signaux"),
+	mSinusoidGeneratorButton("SinusoÃ¯de"),
+	mEffectGroup("Effets"),
+	mVolumeControlButton("ContrÃ´le de volume"),
+	mButton1("Test Button 1"),
+	mButton2("Test Button 2"),
+	mButton3("Test Button 3")
 {
 	// Window properties
 	set_title ("DagalTone");
@@ -136,11 +135,9 @@ mButton3("Test Button 3")
 
 	mMainBox.pack_start(mToolBar, Gtk::PACK_SHRINK);
 	mToolBar.add(mButton1);
+	mToolBar.add(mButton2);
 
 	// Gestion de la palette
-	mToolItemGroup.insert(mButton2);
-	mToolPalette.add(mToolItemGroup);
-
 	mInputModuleGroup.insert(mMidiInputButton);
 	mInputModuleGroup.insert(mAudioInputButton);
 	mToolPalette.add(mInputModuleGroup);
@@ -188,7 +185,7 @@ void CDagalTone::on_input_pressed()
 	//std::list<GeneralModule*>::iterator it = mGL.mGMs.begin();
 	//(*it)->moveTo(x,y);
 	mGL.randomAllModulePosition();
-	//std::cerr << "DÃ©placement vers " << x << "," << y << std::endl;
+	//std::cerr << "DÃƒÂ©placement vers " << x << "," << y << std::endl;
 }
 
 void CDagalTone::on_layout_draw()

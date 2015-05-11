@@ -207,6 +207,8 @@ PACKAGE_STRING = @PACKAGE_STRING@
 PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
+PANGOMM_CFLAGS = @PANGOMM_CFLAGS@
+PANGOMM_LIBS = @PANGOMM_LIBS@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
@@ -259,8 +261,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 dagaltone_SOURCES = main.cpp dagaltone.cpp generallayout.cpp generalmodule.cpp vector2D.cpp
 dagaltone_LDADD = $(LIBOBJS)
-dagaltone_CPPFLAGS = $(GTKMM_3_0_CFLAGS)
-dagaltone_LDFLAGS = $(GTKMM_3_0_LIBS)
+dagaltone_CPPFLAGS = $(GTKMM_3_0_CFLAGS) $(PANGO_CFLAGS)
+dagaltone_LDFLAGS = $(GTKMM_3_0_LIBS) $(PANGO_LIBS)
 all: all-am
 
 .SUFFIXES:

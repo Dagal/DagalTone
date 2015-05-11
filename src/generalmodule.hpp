@@ -31,7 +31,7 @@ public:
 	virtual ~GeneralModule();
 
 	void collide(GeneralModule& gm);
-	void draw(const Cairo::RefPtr<Cairo::Context>& cr) const;
+	void draw(const Cairo::RefPtr<Cairo::Context>& cr);
 	const Vector2D& getDestination() const;
 	const Vector2D& getPosition() const;
 	const Vector2D& getSpeed() const;
@@ -60,6 +60,9 @@ protected:
 
 private:
 	Glib::ustring mName; // Nom du module
+	Pango::FontDescription mFont;
+	Glib::RefPtr<Pango::Layout> mLayout;
+	double mTextWidth, mTextHeight;
 	
 	Vector2D mDesired; // Position à atteindre
 	Vector2D mPosition;	// Position
@@ -77,6 +80,7 @@ private:
 
 	// Taille
 	Vector2D mSize;
+	double mBorderSize;
 };
 
 #endif // _GENERAL_MODULE_H_
