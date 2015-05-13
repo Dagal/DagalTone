@@ -101,8 +101,10 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_dagaltone_OBJECTS = dagaltone-main.$(OBJEXT) \
 	dagaltone-dagaltone.$(OBJEXT) \
+	dagaltone-inputmidimodule.$(OBJEXT) \
 	dagaltone-generallayout.$(OBJEXT) \
-	dagaltone-generalmodule.$(OBJEXT) dagaltone-vector2D.$(OBJEXT)
+	dagaltone-generalmodule.$(OBJEXT) dagaltone-vector2D.$(OBJEXT) \
+	dagaltone-wallsocket.$(OBJEXT)
 dagaltone_OBJECTS = $(am_dagaltone_OBJECTS)
 dagaltone_DEPENDENCIES = $(LIBOBJS)
 dagaltone_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
@@ -259,7 +261,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dagaltone_SOURCES = main.cpp dagaltone.cpp generallayout.cpp generalmodule.cpp vector2D.cpp
+dagaltone_SOURCES = main.cpp dagaltone.cpp inputmidimodule.cpp generallayout.cpp generalmodule.cpp vector2D.cpp wallsocket.cpp
 dagaltone_LDADD = $(LIBOBJS)
 dagaltone_CPPFLAGS = $(GTKMM_3_0_CFLAGS) $(PANGO_CFLAGS)
 dagaltone_LDFLAGS = $(GTKMM_3_0_LIBS) $(PANGO_LIBS)
@@ -352,8 +354,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-dagaltone.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-generallayout.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-generalmodule.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-inputmidimodule.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-vector2D.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dagaltone-wallsocket.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -397,6 +401,20 @@ dagaltone-dagaltone.obj: dagaltone.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-dagaltone.obj `if test -f 'dagaltone.cpp'; then $(CYGPATH_W) 'dagaltone.cpp'; else $(CYGPATH_W) '$(srcdir)/dagaltone.cpp'; fi`
 
+dagaltone-inputmidimodule.o: inputmidimodule.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-inputmidimodule.o -MD -MP -MF $(DEPDIR)/dagaltone-inputmidimodule.Tpo -c -o dagaltone-inputmidimodule.o `test -f 'inputmidimodule.cpp' || echo '$(srcdir)/'`inputmidimodule.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-inputmidimodule.Tpo $(DEPDIR)/dagaltone-inputmidimodule.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='inputmidimodule.cpp' object='dagaltone-inputmidimodule.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-inputmidimodule.o `test -f 'inputmidimodule.cpp' || echo '$(srcdir)/'`inputmidimodule.cpp
+
+dagaltone-inputmidimodule.obj: inputmidimodule.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-inputmidimodule.obj -MD -MP -MF $(DEPDIR)/dagaltone-inputmidimodule.Tpo -c -o dagaltone-inputmidimodule.obj `if test -f 'inputmidimodule.cpp'; then $(CYGPATH_W) 'inputmidimodule.cpp'; else $(CYGPATH_W) '$(srcdir)/inputmidimodule.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-inputmidimodule.Tpo $(DEPDIR)/dagaltone-inputmidimodule.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='inputmidimodule.cpp' object='dagaltone-inputmidimodule.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-inputmidimodule.obj `if test -f 'inputmidimodule.cpp'; then $(CYGPATH_W) 'inputmidimodule.cpp'; else $(CYGPATH_W) '$(srcdir)/inputmidimodule.cpp'; fi`
+
 dagaltone-generallayout.o: generallayout.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-generallayout.o -MD -MP -MF $(DEPDIR)/dagaltone-generallayout.Tpo -c -o dagaltone-generallayout.o `test -f 'generallayout.cpp' || echo '$(srcdir)/'`generallayout.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-generallayout.Tpo $(DEPDIR)/dagaltone-generallayout.Po
@@ -438,6 +456,20 @@ dagaltone-vector2D.obj: vector2D.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='vector2D.cpp' object='dagaltone-vector2D.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-vector2D.obj `if test -f 'vector2D.cpp'; then $(CYGPATH_W) 'vector2D.cpp'; else $(CYGPATH_W) '$(srcdir)/vector2D.cpp'; fi`
+
+dagaltone-wallsocket.o: wallsocket.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-wallsocket.o -MD -MP -MF $(DEPDIR)/dagaltone-wallsocket.Tpo -c -o dagaltone-wallsocket.o `test -f 'wallsocket.cpp' || echo '$(srcdir)/'`wallsocket.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-wallsocket.Tpo $(DEPDIR)/dagaltone-wallsocket.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallsocket.cpp' object='dagaltone-wallsocket.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-wallsocket.o `test -f 'wallsocket.cpp' || echo '$(srcdir)/'`wallsocket.cpp
+
+dagaltone-wallsocket.obj: wallsocket.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT dagaltone-wallsocket.obj -MD -MP -MF $(DEPDIR)/dagaltone-wallsocket.Tpo -c -o dagaltone-wallsocket.obj `if test -f 'wallsocket.cpp'; then $(CYGPATH_W) 'wallsocket.cpp'; else $(CYGPATH_W) '$(srcdir)/wallsocket.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dagaltone-wallsocket.Tpo $(DEPDIR)/dagaltone-wallsocket.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallsocket.cpp' object='dagaltone-wallsocket.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(dagaltone_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dagaltone-wallsocket.obj `if test -f 'wallsocket.cpp'; then $(CYGPATH_W) 'wallsocket.cpp'; else $(CYGPATH_W) '$(srcdir)/wallsocket.cpp'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

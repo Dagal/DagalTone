@@ -17,6 +17,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "../config.h"
 #include <iostream>
 #include "dagaltone.hpp"
 
@@ -40,7 +41,7 @@ CDagalTone::CDagalTone(const Glib::RefPtr<Gtk::Application>& app):
 	mButton3("Test Button 3")
 {
 	// Window properties
-	set_title ("DagalTone");
+	set_title (PACKAGE_STRING);
 
 	// Layout
 	add(mMainBox);

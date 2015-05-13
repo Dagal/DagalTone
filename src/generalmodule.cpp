@@ -122,7 +122,6 @@ void GeneralModule::collide(GeneralModule& gm)
 		}
 }
 
-
 void GeneralModule::update(const double time)
 {
 	mAcceleration.setX((mDesired.getX() - mPosition.getX()));
@@ -271,6 +270,11 @@ void GeneralModule::setColor(const double r,
 void GeneralModule::setAlpha(const double a)
 {
 	mAlpha = a;
+}
+
+void GeneralModule::addWallSocket(WallSocket* ws)
+{
+	mWallSockets.push_back(ws);
 }
 
 double GeneralModule::padding = 0.1;

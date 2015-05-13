@@ -22,7 +22,9 @@
 
 #include <gtkmm/drawingarea.h>
 #include <glibmm/ustring.h>
+#include <list>
 #include "vector2D.hpp"
+#include "wallsocket.hpp"
 
 class GeneralModule
 {
@@ -52,6 +54,7 @@ public:
 								const double b);
 	void setAlpha(const double a);
 	void update(const double time);
+	void addWallSocket(WallSocket* ws);
 
 	// Espace entre module
 	static double padding;
@@ -60,6 +63,7 @@ protected:
 
 private:
 	Glib::ustring mName; // Nom du module
+	std::list<WallSocket*> mWallSockets; // Liste des prises branchables
 	Pango::FontDescription mFont;
 	Glib::RefPtr<Pango::Layout> mLayout;
 	double mTextWidth, mTextHeight;
